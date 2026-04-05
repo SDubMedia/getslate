@@ -31,14 +31,14 @@ function App() {
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0088ff]/10 border border-[#0088ff]/20 text-[#0088ff] text-xs font-medium mb-8">
-            Built by a production company, for production companies
+            Built by a production company that needed this too
           </div>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
-            Know what you're<br />
-            <span className="bg-gradient-to-r from-[#00d4ff] to-[#0088ff] bg-clip-text text-transparent">actually making.</span>
+            Run your production<br />company,
+            <span className="bg-gradient-to-r from-[#00d4ff] to-[#0088ff] bg-clip-text text-transparent"> not a spreadsheet.</span>
           </h1>
           <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Production management that goes beyond scheduling. Track projects, pay crew, send invoices, and see your real profit — all in one place.
+            Schedule shoots, pay crew, invoice clients, and see your real profit — all in one place. No more juggling spreadsheets, texts, and QuickBooks.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href={APP_URL} className="px-8 py-4 bg-[#0088ff] text-white font-semibold rounded-xl hover:bg-[#0066dd] transition-all hover:shadow-lg hover:shadow-[#0088ff]/25 text-lg">
@@ -53,11 +53,15 @@ function App() {
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
-            You know your revenue.<br />But do you know your profit?
+            Sound familiar?
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-            Most production companies track what comes in but have no idea what goes out. After paying crew, tracking miles, and splitting with partners — what's actually yours? Slate gives you the answer.
-          </p>
+          <div className="max-w-2xl mx-auto space-y-4 text-lg text-slate-400">
+            <p>"How many hours did Antonio work last month?"</p>
+            <p>"I forgot to invoice that client from three weeks ago."</p>
+            <p>"My CPA needs my mileage logs and I have... nothing."</p>
+            <p>"Am I even making money after paying everyone?"</p>
+          </div>
+          <p className="text-[#0088ff] font-semibold text-lg mt-8">Slate replaces the chaos with clarity.</p>
         </div>
       </section>
 
@@ -66,9 +70,9 @@ function App() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
-              The questions that keep you up at night
+              Know what you're actually making.
             </h2>
-            <p className="text-slate-400 text-lg">Slate answers all of them.</p>
+            <p className="text-slate-400 text-lg">Every question you've been guessing at — Slate answers it.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -111,7 +115,7 @@ function App() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
-              Everything you need to run your production company
+              From shoot day to payday. All in one place.
             </h2>
           </div>
 
@@ -233,10 +237,10 @@ function App() {
       <section className="py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
-            Stop guessing. Start knowing.
+            Ditch the spreadsheets. Run your business.
           </h2>
           <p className="text-slate-400 text-lg mb-10">
-            Join production companies who finally know what they're making. Free for 14 days.
+            Join production companies who stopped guessing and started knowing. Free for 14 days.
           </p>
           <a href={APP_URL} className="inline-flex px-8 py-4 bg-[#0088ff] text-white font-semibold rounded-xl hover:bg-[#0066dd] transition-all hover:shadow-lg hover:shadow-[#0088ff]/25 text-lg">
             Start Your Free Trial
