@@ -9,11 +9,7 @@ function App() {
       <nav className="fixed top-0 w-full z-50 bg-[#0a0e17]/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#0088ff] flex items-center justify-center">
-              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
+            <img src="/logo.png" alt="Slate" className="w-8 h-8 rounded-lg" />
             <span className="text-lg font-bold text-white tracking-wide" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Slate</span>
           </div>
           <div className="flex items-center gap-4">
