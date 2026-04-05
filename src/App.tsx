@@ -56,7 +56,7 @@ function App() {
             Sound familiar?
           </h2>
           <div className="max-w-2xl mx-auto space-y-4 text-lg text-slate-400">
-            <p>"How many hours did Antonio work last month?"</p>
+            <p>"How many hours did Geoff work last month?"</p>
             <p>"I forgot to invoice that client from three weeks ago."</p>
             <p>"My CPA needs my mileage logs and I have... nothing."</p>
             <p>"Am I even making money after paying everyone?"</p>
