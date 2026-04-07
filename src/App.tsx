@@ -45,6 +45,10 @@ function App() {
             50% { transform: translate(-60px, -40px) scale(1.1); }
             75% { transform: translate(20px, -80px) scale(1.05); }
           }
+          @keyframes heroFlare {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-30%, -60%) scale(1.3); opacity: 0.5; }
+          }
           @keyframes heroBokeh {
             0%, 100% { transform: translateY(0); opacity: 0.15; }
             50% { transform: translateY(-25px); opacity: 0.3; }
@@ -67,6 +71,14 @@ function App() {
           background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)",
           top: "30%", left: "30%", filter: "blur(90px)",
           animation: "heroBlob3 11s ease-in-out infinite",
+        }} />
+        {/* Lens flare */}
+        <div className="absolute pointer-events-none" style={{
+          width: 350, height: 140,
+          top: "20%", left: "55%",
+          background: "radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, rgba(0,136,255,0.04) 40%, transparent 70%)",
+          transform: "rotate(-15deg)",
+          animation: "heroFlare 15s ease-in-out infinite",
         }} />
         {/* Bokeh dots */}
         {[
