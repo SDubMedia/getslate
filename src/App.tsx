@@ -24,8 +24,65 @@ function App() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        {/* Animated gradient blobs */}
+        <style>{`
+          @keyframes heroBlob1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(80px, -60px) scale(1.1); }
+            50% { transform: translate(-40px, 80px) scale(0.95); }
+            75% { transform: translate(60px, 40px) scale(1.05); }
+          }
+          @keyframes heroBlob2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-60px, 40px) scale(1.05); }
+            50% { transform: translate(50px, -70px) scale(1.1); }
+            75% { transform: translate(-80px, -20px) scale(0.95); }
+          }
+          @keyframes heroBlob3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(40px, 60px) scale(0.95); }
+            50% { transform: translate(-60px, -40px) scale(1.1); }
+            75% { transform: translate(20px, -80px) scale(1.05); }
+          }
+          @keyframes heroBokeh {
+            0%, 100% { transform: translateY(0); opacity: 0.15; }
+            50% { transform: translateY(-25px); opacity: 0.3; }
+          }
+        `}</style>
+        {/* Blob 1 — Blue */}
+        <div className="absolute w-[500px] h-[500px] rounded-full opacity-25 pointer-events-none" style={{
+          background: "radial-gradient(circle, #0088ff 0%, transparent 70%)",
+          top: "-15%", left: "-5%", filter: "blur(80px)",
+          animation: "heroBlob1 10s ease-in-out infinite",
+        }} />
+        {/* Blob 2 — Cyan */}
+        <div className="absolute w-[400px] h-[400px] rounded-full opacity-20 pointer-events-none" style={{
+          background: "radial-gradient(circle, #00d4ff 0%, transparent 70%)",
+          top: "10%", right: "-5%", filter: "blur(80px)",
+          animation: "heroBlob2 12s ease-in-out infinite",
+        }} />
+        {/* Blob 3 — Purple */}
+        <div className="absolute w-[450px] h-[450px] rounded-full opacity-15 pointer-events-none" style={{
+          background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)",
+          top: "30%", left: "30%", filter: "blur(90px)",
+          animation: "heroBlob3 11s ease-in-out infinite",
+        }} />
+        {/* Bokeh dots */}
+        {[
+          { size: 10, x: "20%", y: "15%", dur: "5s", delay: "0s" },
+          { size: 8, x: "70%", y: "25%", dur: "4s", delay: "1.5s" },
+          { size: 12, x: "80%", y: "60%", dur: "5.5s", delay: "0.5s" },
+          { size: 7, x: "35%", y: "70%", dur: "4.5s", delay: "2s" },
+        ].map((dot, i) => (
+          <div key={i} className="absolute rounded-full pointer-events-none" style={{
+            width: dot.size, height: dot.size, left: dot.x, top: dot.y,
+            background: "radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)",
+            animation: `heroBokeh ${dot.dur} ease-in-out ${dot.delay} infinite`,
+          }} />
+        ))}
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0088ff]/10 border border-[#0088ff]/20 text-[#0088ff] text-xs font-medium mb-8">
             Built for a production company, by a production company
           </div>
