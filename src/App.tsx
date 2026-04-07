@@ -86,6 +86,8 @@ function App() {
           { size: 8, x: "70%", y: "25%", dur: "4s", delay: "1.5s" },
           { size: 12, x: "80%", y: "60%", dur: "5.5s", delay: "0.5s" },
           { size: 7, x: "35%", y: "70%", dur: "4.5s", delay: "2s" },
+          { size: 9, x: "55%", y: "45%", dur: "4.8s", delay: "0.8s" },
+          { size: 6, x: "10%", y: "50%", dur: "3.8s", delay: "1.2s" },
         ].map((dot, i) => (
           <div key={i} className="absolute rounded-full pointer-events-none" style={{
             width: dot.size, height: dot.size, left: dot.x, top: dot.y,
