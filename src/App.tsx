@@ -216,7 +216,7 @@ function App() {
 
       {/* Pricing */}
       <section id="pricing" className="py-20 px-6 bg-[#0f1629]/50">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
               Simple pricing. No surprises.
@@ -224,77 +224,175 @@ function App() {
             <p className="text-slate-400 text-lg">Start free for 14 days. Upgrade when you're ready.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {/* Basic */}
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
-              <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Basic</h3>
-              <p className="text-sm text-slate-400 mb-6">Everything you need to manage productions</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-white">$19.99</span>
-                <span className="text-slate-500 text-sm">/month</span>
+          {/* Production Company Plans */}
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-[#0088ff]/20 flex items-center justify-center">
+                <svg className="w-4 h-4 text-[#0088ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
               </div>
-              <a href={APP_URL} className="block w-full py-3 text-center rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 transition-colors mb-8">
-                Start Free Trial
-              </a>
-              <ul className="space-y-3 text-sm">
-                {[
-                  "Production Calendar",
-                  "Crew Management & Pay Rates",
-                  "Client Management",
-                  "Invoicing (create, send, track)",
-                  "Billing Summary (monthly & annual)",
-                  "Reports & Analytics",
-                  "Client Portal",
-                  "Staff Portal",
-                  "Unlimited Projects",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-slate-300">
-                    <svg className="w-4 h-4 text-[#0088ff] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <div>
+                <h3 className="text-lg font-bold text-white" style={{ fontFamily: "'Space Grotesk', system-ui" }}>For Production Companies</h3>
+                <p className="text-sm text-slate-400">Manage your crew, clients, and finances</p>
+              </div>
             </div>
-
-            {/* Pro */}
-            <div className="rounded-2xl border-2 border-[#0088ff]/50 bg-[#0088ff]/5 p-8 relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#0088ff] text-white text-xs font-bold rounded-full">
-                MOST POPULAR
-              </div>
-              <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Pro</h3>
-              <p className="text-sm text-slate-400 mb-6">Full business operations suite</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-white">$29.99</span>
-                <span className="text-slate-500 text-sm">/month</span>
-              </div>
-              <a href={APP_URL} className="block w-full py-3 text-center rounded-xl bg-[#0088ff] text-white font-medium hover:bg-[#0066dd] transition-colors mb-8">
-                Start Free Trial
-              </a>
-              <ul className="space-y-3 text-sm">
-                {[
-                  "Everything in Basic, plus:",
-                  "Mileage Tracking (Google Maps)",
-                  "Expense Tracking (CSV/PDF import)",
-                  "Profit & Loss Statements",
-                  "1099 Contractor Summary",
-                  "W-9 Tax ID Storage",
-                  "Partner Revenue Splits",
-                  "Spending Budget Tracking",
-                  "Content Series (AI Brainstorming)",
-                  "CPA-Ready Tax Reports",
-                ].map((item, i) => (
-                  <li key={i} className={`flex items-start gap-2 ${i === 0 ? "text-[#0088ff] font-semibold" : "text-slate-300"}`}>
-                    {i > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+              {/* Basic */}
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+                <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Basic</h3>
+                <p className="text-sm text-slate-400 mb-6">Everything you need to manage productions</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-white">$19.99</span>
+                  <span className="text-slate-500 text-sm">/month</span>
+                </div>
+                <a href={APP_URL} className="block w-full py-3 text-center rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 transition-colors mb-8">
+                  Start Free Trial
+                </a>
+                <ul className="space-y-3 text-sm">
+                  {[
+                    "Production Calendar",
+                    "Crew Management & Pay Rates",
+                    "Client Management",
+                    "Invoicing (create, send, track)",
+                    "Billing Summary (monthly & annual)",
+                    "Reports & Analytics",
+                    "Client Portal",
+                    "Staff Portal",
+                    "Unlimited Projects",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-slate-300">
                       <svg className="w-4 h-4 text-[#0088ff] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                    )}
-                    {item}
-                  </li>
-                ))}
-              </ul>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Pro */}
+              <div className="rounded-2xl border-2 border-[#0088ff]/50 bg-[#0088ff]/5 p-8 relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#0088ff] text-white text-xs font-bold rounded-full">
+                  MOST POPULAR
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Pro</h3>
+                <p className="text-sm text-slate-400 mb-6">Full business operations suite</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-white">$29.99</span>
+                  <span className="text-slate-500 text-sm">/month</span>
+                </div>
+                <a href={APP_URL} className="block w-full py-3 text-center rounded-xl bg-[#0088ff] text-white font-medium hover:bg-[#0066dd] transition-colors mb-8">
+                  Start Free Trial
+                </a>
+                <ul className="space-y-3 text-sm">
+                  {[
+                    "Everything in Basic, plus:",
+                    "Mileage Tracking (Google Maps)",
+                    "Expense Tracking (CSV/PDF import)",
+                    "Profit & Loss Statements",
+                    "1099 Contractor Summary",
+                    "W-9 Tax ID Storage",
+                    "Partner Revenue Splits",
+                    "Spending Budget Tracking",
+                    "Content Series (AI Brainstorming)",
+                    "CPA-Ready Tax Reports",
+                  ].map((item, i) => (
+                    <li key={i} className={`flex items-start gap-2 ${i === 0 ? "text-[#0088ff] font-semibold" : "text-slate-300"}`}>
+                      {i > 0 && (
+                        <svg className="w-4 h-4 text-[#0088ff] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      )}
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Freelancer Plans */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                <svg className="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white" style={{ fontFamily: "'Space Grotesk', system-ui" }}>For Freelancers</h3>
+                <p className="text-sm text-slate-400">Gig management for live-event crew</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+              {/* Freelance */}
+              <div className="rounded-2xl border border-purple-500/20 bg-purple-500/[0.03] p-8">
+                <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Freelance</h3>
+                <p className="text-sm text-slate-400 mb-6">Everything to manage your gigs and get paid</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-white">$14.99</span>
+                  <span className="text-slate-500 text-sm">/month</span>
+                </div>
+                <a href={APP_URL} className="block w-full py-3 text-center rounded-xl border border-purple-500/30 text-white font-medium hover:bg-purple-500/10 transition-colors mb-8">
+                  Start Free Trial
+                </a>
+                <ul className="space-y-3 text-sm">
+                  {[
+                    "Gig Calendar + Personal Sync",
+                    "Daily Briefing Card",
+                    "Clock In/Out + Overtime Tracking",
+                    "Expense Capture + Receipt Scanning",
+                    "Gear Rental Billing",
+                    "Invoice Generation (branded)",
+                    "Client CRM",
+                    "Per Diem Tracking",
+                    "Mileage Log (IRS rate)",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-slate-300">
+                      <svg className="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Freelance Pro */}
+              <div className="rounded-2xl border-2 border-purple-500/50 bg-purple-500/5 p-8 relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-full">
+                  BEST VALUE
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Freelance Pro</h3>
+                <p className="text-sm text-slate-400 mb-6">AI-powered automation for serious freelancers</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-white">$24.99</span>
+                  <span className="text-slate-500 text-sm">/month</span>
+                </div>
+                <a href={APP_URL} className="block w-full py-3 text-center rounded-xl bg-purple-500 text-white font-medium hover:bg-purple-600 transition-colors mb-8">
+                  Start Free Trial
+                </a>
+                <ul className="space-y-3 text-sm">
+                  {[
+                    "Everything in Freelance, plus:",
+                    "AI Receipt Scanning (photo to data)",
+                    "AI Deal Memo Parsing (auto-fill gigs)",
+                    "GSA Per Diem Auto-Lookup",
+                    "Nearby Coffee & Food Finder",
+                    "P&L Statements + Tax Prep",
+                    "Rest Period Violation Alerts",
+                    "Weather on Briefing Card",
+                    "Document Wallet (travel docs)",
+                    "Priority Support",
+                  ].map((item, i) => (
+                    <li key={i} className={`flex items-start gap-2 ${i === 0 ? "text-purple-400 font-semibold" : "text-slate-300"}`}>
+                      {i > 0 && (
+                        <svg className="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      )}
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
