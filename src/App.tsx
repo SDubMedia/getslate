@@ -242,7 +242,7 @@ function App() {
                 <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Basic</h3>
                 <p className="text-sm text-slate-400 mb-6">Everything you need to manage productions</p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-white">$19.99</span>
+                  <span className="text-4xl font-bold text-white">$9.99</span>
                   <span className="text-slate-500 text-sm">/month</span>
                 </div>
                 <a href={APP_URL} className="block w-full py-3 text-center rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 transition-colors mb-8">
@@ -278,7 +278,7 @@ function App() {
                 <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Pro</h3>
                 <p className="text-sm text-slate-400 mb-6">Full business operations suite</p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-white">$29.99</span>
+                  <span className="text-4xl font-bold text-white">$19.99</span>
                   <span className="text-slate-500 text-sm">/month</span>
                 </div>
                 <a href={APP_URL} className="block w-full py-3 text-center rounded-xl bg-[#0088ff] text-white font-medium hover:bg-[#0066dd] transition-colors mb-8">
@@ -322,13 +322,42 @@ function App() {
                 <p className="text-sm text-slate-400">Gig management for live-event crew</p>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Free */}
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+                <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Free</h3>
+                <p className="text-sm text-slate-400 mb-6">Get started and see the value</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-white">$0</span>
+                  <span className="text-slate-500 text-sm">/forever</span>
+                </div>
+                <a href={FREELANCE_URL} className="block w-full py-3 text-center rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 transition-colors mb-8">
+                  Get Started
+                </a>
+                <ul className="space-y-3 text-sm">
+                  {[
+                    "3 Active Gigs",
+                    "Basic Calendar",
+                    "Clock In/Out",
+                    "1 Invoice per Month",
+                    "Client CRM (3 clients)",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-slate-300">
+                      <svg className="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               {/* Freelance */}
               <div className="rounded-2xl border border-purple-500/20 bg-purple-500/[0.03] p-8">
                 <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Freelance</h3>
                 <p className="text-sm text-slate-400 mb-6">Everything to manage your gigs and get paid</p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-white">$14.99</span>
+                  <span className="text-4xl font-bold text-white">$9.99</span>
                   <span className="text-slate-500 text-sm">/month</span>
                 </div>
                 <a href={FREELANCE_URL} className="block w-full py-3 text-center rounded-xl border border-purple-500/30 text-white font-medium hover:bg-purple-500/10 transition-colors mb-8">
@@ -336,13 +365,14 @@ function App() {
                 </a>
                 <ul className="space-y-3 text-sm">
                   {[
+                    "Unlimited Gigs",
                     "Gig Calendar + Personal Sync",
                     "Daily Briefing Card",
                     "Clock In/Out + Overtime Tracking",
-                    "Expense Capture + Receipt Scanning",
+                    "Expense Capture (10 scans/mo)",
                     "Gear Rental Billing",
                     "Invoice Generation (branded)",
-                    "Client CRM",
+                    "Unlimited Clients",
                     "Per Diem Tracking",
                     "Mileage Log (IRS rate)",
                   ].map((item, i) => (
@@ -364,7 +394,7 @@ function App() {
                 <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Freelance Pro</h3>
                 <p className="text-sm text-slate-400 mb-6">AI-powered automation for serious freelancers</p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-white">$24.99</span>
+                  <span className="text-4xl font-bold text-white">$19.99</span>
                   <span className="text-slate-500 text-sm">/month</span>
                 </div>
                 <a href={FREELANCE_URL} className="block w-full py-3 text-center rounded-xl bg-purple-500 text-white font-medium hover:bg-purple-600 transition-colors mb-8">
@@ -373,7 +403,7 @@ function App() {
                 <ul className="space-y-3 text-sm">
                   {[
                     "Everything in Freelance, plus:",
-                    "AI Receipt Scanning (photo to data)",
+                    "AI Receipt Scanning (50 scans/mo)",
                     "AI Deal Memo Parsing (auto-fill gigs)",
                     "GSA Per Diem Auto-Lookup",
                     "Nearby Coffee & Food Finder",
