@@ -1,6 +1,7 @@
 import './index.css'
 
 const APP_URL = "https://slate.sdubmedia.com"
+const FREELANCE_URL = "https://freelance.sdubmedia.com"
 
 function App() {
   return (
@@ -330,7 +331,7 @@ function App() {
                   <span className="text-4xl font-bold text-white">$14.99</span>
                   <span className="text-slate-500 text-sm">/month</span>
                 </div>
-                <a href={APP_URL} className="block w-full py-3 text-center rounded-xl border border-purple-500/30 text-white font-medium hover:bg-purple-500/10 transition-colors mb-8">
+                <a href={FREELANCE_URL} className="block w-full py-3 text-center rounded-xl border border-purple-500/30 text-white font-medium hover:bg-purple-500/10 transition-colors mb-8">
                   Start Free Trial
                 </a>
                 <ul className="space-y-3 text-sm">
@@ -366,7 +367,7 @@ function App() {
                   <span className="text-4xl font-bold text-white">$24.99</span>
                   <span className="text-slate-500 text-sm">/month</span>
                 </div>
-                <a href={APP_URL} className="block w-full py-3 text-center rounded-xl bg-purple-500 text-white font-medium hover:bg-purple-600 transition-colors mb-8">
+                <a href={FREELANCE_URL} className="block w-full py-3 text-center rounded-xl bg-purple-500 text-white font-medium hover:bg-purple-600 transition-colors mb-8">
                   Start Free Trial
                 </a>
                 <ul className="space-y-3 text-sm">
