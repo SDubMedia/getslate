@@ -421,7 +421,10 @@ function App() {
             <img src="/logo.png" alt="Slate" className="w-6 h-6 rounded-md" />
             <span className="text-sm font-semibold text-white" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Slate</span>
           </div>
-          <p className="text-xs text-slate-600">&copy; {new Date().getFullYear()} Slate by SDub Media. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <a href="/privacy.html" className="text-xs text-slate-600 hover:text-slate-400 transition-colors">Privacy Policy</a>
+            <p className="text-xs text-slate-600">&copy; {new Date().getFullYear()} Slate by SDub Media. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>
