@@ -446,14 +446,21 @@ function App() {
 
       {/* Footer */}
       <footer className="border-t border-white/5 py-12 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex items-center gap-2.5">
             <img src="/logo.png" alt="Slate" className="w-6 h-6 rounded-md" />
             <span className="text-sm font-semibold text-white" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Slate</span>
           </div>
-          <div className="flex items-center gap-4">
-            <a href="/privacy.html" className="text-xs text-slate-600 hover:text-slate-400 transition-colors">Privacy Policy</a>
-            <p className="text-xs text-slate-600">&copy; {new Date().getFullYear()} Slate by SDub Media. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+              <a href={APP_URL} className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Slate App</a>
+              <a href={FREELANCE_URL} className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Freelance App</a>
+              <a href={`${APP_URL}/terms`} className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Terms</a>
+              <a href={`${APP_URL}/refund`} className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Refunds</a>
+              <a href={`${APP_URL}/privacy`} className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Privacy</a>
+              <a href="mailto:support@sdubmedia.com" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Support</a>
+            </div>
+            <p className="text-xs text-slate-600">&copy; {new Date().getFullYear()} SDub Media LLC</p>
           </div>
         </div>
       </footer>
