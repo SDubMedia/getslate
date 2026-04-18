@@ -215,6 +215,52 @@ function App() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="py-20 px-6 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+              Built by people who needed this.
+            </h2>
+            <p className="text-slate-400">Real production crews. Real problems.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Geoff — founder story */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+              <p className="text-slate-200 text-lg leading-relaxed mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+                "I kept losing invoices. I had no idea which clients were actually profitable. My P&L lived in my head. I built Slate because nothing else was designed for how a production company actually runs."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0088ff] to-[#00d4ff] flex items-center justify-center text-white font-bold text-sm">
+                  GS
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white">Geoff Southworth</p>
+                  <p className="text-xs text-slate-500">Founder · SDub Media</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Dave — Freelance design partner */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+              <p className="text-slate-200 text-lg leading-relaxed mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+                "Between clock-ins, per diem, gear rentals, and mileage, tracking a gig is a second job. Slate Freelance finally matches how live-event work actually bills."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm">
+                  DK
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white">Dave Kole</p>
+                  <p className="text-xs text-slate-500">Projectionist · ATLAS Events</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section id="pricing" className="py-20 px-6 bg-[#0f1629]/50">
         <div className="max-w-5xl mx-auto">
