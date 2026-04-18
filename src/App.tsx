@@ -110,9 +110,9 @@ function App() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href={APP_URL} className="px-8 py-4 bg-[#0088ff] text-white font-semibold rounded-xl hover:bg-[#0066dd] transition-all hover:shadow-lg hover:shadow-[#0088ff]/25 text-lg">
-              Start Free Trial
+              Get Started Free
             </a>
-            <span className="text-sm text-slate-500">14 days free. No credit card required.</span>
+            <span className="text-sm text-slate-500">10 projects free, forever. No credit card.</span>
           </div>
         </div>
       </section>
@@ -441,7 +441,7 @@ function App() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
               Simple pricing. No surprises.
             </h2>
-            <p className="text-slate-400 text-lg">Start free for 14 days. Upgrade when you're ready.</p>
+            <p className="text-slate-400 text-lg">Start free. Upgrade when you outgrow it.</p>
           </div>
 
           {/* Production Company Plans */}
@@ -455,7 +455,38 @@ function App() {
                 <p className="text-sm text-slate-400">Manage your crew, clients, and finances</p>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Free */}
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+                <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Free</h3>
+                <p className="text-sm text-slate-400 mb-6">Try it on a real project</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-white">$0</span>
+                  <span className="text-slate-500 text-sm">/forever</span>
+                </div>
+                <a href={APP_URL} className="block w-full py-3 text-center rounded-xl border border-white/20 text-white font-medium hover:bg-white/5 transition-colors mb-8">
+                  Get Started
+                </a>
+                <ul className="space-y-3 text-sm">
+                  {[
+                    "10 Projects (lifetime)",
+                    "Production Calendar",
+                    "Crew Management",
+                    "Client Management",
+                    "Invoicing (create, send, track)",
+                    "Reports & Analytics",
+                    "Client & Staff Portals",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-slate-300">
+                      <svg className="w-4 h-4 text-[#0088ff] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               {/* Basic */}
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
                 <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Basic</h3>
@@ -545,7 +576,7 @@ function App() {
               {/* Free */}
               <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
                 <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Free</h3>
-                <p className="text-sm text-slate-400 mb-6">Get started and see the value</p>
+                <p className="text-sm text-slate-400 mb-6">Try it on a real gig</p>
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-white">$0</span>
                   <span className="text-slate-500 text-sm">/forever</span>
@@ -555,11 +586,14 @@ function App() {
                 </a>
                 <ul className="space-y-3 text-sm">
                   {[
-                    "3 Active Gigs",
-                    "Basic Calendar",
-                    "Clock In/Out",
-                    "1 Invoice per Month",
-                    "Client CRM (3 clients)",
+                    "10 Active Gigs (lifetime)",
+                    "Calendar + Personal Sync",
+                    "Clock In/Out + Overtime",
+                    "Gear Rental Billing",
+                    "Invoice Generation",
+                    "Mileage Log (IRS rate)",
+                    "Per Diem Tracking",
+                    "Unlimited Clients",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-slate-300">
                       <svg className="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -666,7 +700,7 @@ function App() {
               },
               {
                 q: "What's included in the free tier?",
-                a: "Up to 10 projects with full functionality — calendar, clients, crew, invoicing, reports. When you hit the cap, upgrade to Basic ($9.99/mo) or Pro ($19.99/mo) for unlimited projects. Paid plans include a 14-day free trial."
+                a: "Both apps are free up to 10 projects (Slate) or 10 gigs (Freelance), with core features unlocked — calendar, clients, invoicing, reports, and more. When you hit the cap, upgrade to Basic ($9.99/mo) for unlimited work or Pro ($19.99/mo) to add AI scanning, P&L, and advanced tools."
               },
               {
                 q: "Can I invite my crew? What can they see?",
@@ -716,7 +750,7 @@ function App() {
             Ditch the spreadsheets. Run your business.
           </h2>
           <p className="text-slate-400 text-lg mb-10">
-            Join production companies who stopped guessing and started knowing. Free for 14 days.
+            Join production companies who stopped guessing and started knowing. 10 projects free to start.
           </p>
           <a href={APP_URL} className="inline-flex px-8 py-4 bg-[#0088ff] text-white font-semibold rounded-xl hover:bg-[#0066dd] transition-all hover:shadow-lg hover:shadow-[#0088ff]/25 text-lg">
             Start Your Free Trial
