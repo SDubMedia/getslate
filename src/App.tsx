@@ -117,6 +117,97 @@ function App() {
         </div>
       </section>
 
+      {/* Dashboard preview — CSS mockup. Swap for a real screenshot when available. */}
+      <section className="pb-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative">
+            {/* Subtle glow */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0088ff]/10 to-transparent blur-3xl -z-10" />
+
+            {/* Mock window chrome */}
+            <div className="rounded-t-xl bg-[#0f1629] border border-white/10 border-b-0 px-4 py-2.5 flex items-center gap-2">
+              <div className="flex gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+              </div>
+              <div className="flex-1 text-center text-xs text-slate-500">slate.sdubmedia.com</div>
+            </div>
+
+            {/* Dashboard body */}
+            <div className="rounded-b-xl bg-[#0a0e17] border border-white/10 p-6 sm:p-8">
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <h3 className="text-xl font-bold text-white" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Dashboard</h3>
+                  <p className="text-xs text-slate-500">SDub Media · 2026</p>
+                </div>
+                <div className="text-xs text-slate-500 hidden sm:block">April 18</div>
+              </div>
+
+              {/* Status cards */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                {[
+                  { label: "Upcoming", value: "7", color: "text-[#0088ff]", bg: "bg-[#0088ff]/10" },
+                  { label: "In Editing", value: "4", color: "text-amber-400", bg: "bg-amber-500/10" },
+                  { label: "Outstanding", value: "$12,450", color: "text-purple-300", bg: "bg-purple-500/10" },
+                  { label: "Completed", value: "23", color: "text-emerald-400", bg: "bg-emerald-500/10" },
+                ].map((s, i) => (
+                  <div key={i} className={`rounded-lg border border-white/5 ${s.bg} p-3`}>
+                    <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">{s.label}</div>
+                    <div className={`text-xl font-bold ${s.color}`} style={{ fontFamily: "'Space Grotesk', system-ui" }}>{s.value}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Two-column: revenue + upcoming */}
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                {/* Revenue chart (CSS bars) */}
+                <div className="md:col-span-3 rounded-lg border border-white/5 bg-white/[0.02] p-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <div className="text-xs text-slate-500">Revenue</div>
+                      <div className="text-lg font-bold text-white" style={{ fontFamily: "'Space Grotesk', system-ui" }}>$48,720</div>
+                    </div>
+                    <div className="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">↑ 18%</div>
+                  </div>
+                  <div className="flex items-end gap-2 h-24">
+                    {[35, 55, 42, 68, 52, 78, 88].map((h, i) => (
+                      <div key={i} className="flex-1 flex flex-col items-center gap-1">
+                        <div className="w-full rounded-t bg-gradient-to-t from-[#0088ff] to-[#00d4ff] opacity-80" style={{ height: `${h}%` }} />
+                        <div className="text-[9px] text-slate-600">
+                          {["O","N","D","J","F","M","A"][i]}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Upcoming list */}
+                <div className="md:col-span-2 rounded-lg border border-white/5 bg-white/[0.02] p-4">
+                  <div className="text-xs text-slate-500 mb-3">Upcoming shoots</div>
+                  <div className="space-y-2.5">
+                    {[
+                      { name: "CBSR Podcast", date: "Apr 22", color: "bg-[#0088ff]" },
+                      { name: "Acme Brand Shoot", date: "Apr 24", color: "bg-purple-500" },
+                      { name: "Headshots — Studio", date: "Apr 28", color: "bg-amber-500" },
+                    ].map((p, i) => (
+                      <div key={i} className="flex items-center gap-2.5">
+                        <div className={`w-1 h-6 ${p.color} rounded-full`} />
+                        <div className="flex-1 min-w-0">
+                          <div className="text-xs text-white truncate">{p.name}</div>
+                          <div className="text-[10px] text-slate-500">{p.date}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p className="text-center text-xs text-slate-600 mt-4">Dashboard preview · actual data shown once you sign in</p>
+        </div>
+      </section>
+
       {/* Problem Statement */}
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-4xl mx-auto text-center">
@@ -130,6 +221,88 @@ function App() {
             <p>"Am I even making money after paying everyone?"</p>
           </div>
           <p className="text-[#0088ff] font-semibold text-lg mt-8">Slate replaces the chaos with clarity.</p>
+        </div>
+      </section>
+
+      {/* Who this is for */}
+      <section className="py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+              Two products. Pick the one that fits.
+            </h2>
+            <p className="text-slate-400">We split production companies and freelancers into separate apps because their problems are actually different.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Production companies */}
+            <div className="rounded-2xl border border-[#0088ff]/30 bg-[#0088ff]/5 p-8">
+              <div className="w-10 h-10 rounded-lg bg-[#0088ff]/20 flex items-center justify-center mb-4">
+                <svg className="w-5 h-5 text-[#0088ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+                Slate — for production companies
+              </h3>
+              <p className="text-sm text-slate-400 mb-5 leading-relaxed">
+                You run the show. Crew work for you. You send invoices to clients. You need to know who's profitable, who owes you, and what your actual margins are.
+              </p>
+              <ul className="space-y-2 text-sm text-slate-300">
+                {[
+                  "Solo operator to ~10-person shop",
+                  "Photo, video, podcast, live-event production",
+                  "You invoice clients (hourly or flat-rate)",
+                  "You pay crew per project",
+                  "You want P&L + partner splits visible",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <svg className="w-4 h-4 text-[#0088ff] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a href={APP_URL} className="mt-6 inline-block text-sm font-semibold text-[#0088ff] hover:text-[#00d4ff] transition-colors">
+                Start with Slate →
+              </a>
+            </div>
+
+            {/* Freelancers */}
+            <div className="rounded-2xl border border-purple-500/30 bg-purple-500/5 p-8">
+              <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4">
+                <svg className="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+                Freelance — for live-event crew
+              </h3>
+              <p className="text-sm text-slate-400 mb-5 leading-relaxed">
+                You're on the other side. You work gigs for different production companies. You need to track your hours, gear, mileage, per diem — and invoice them so you actually get paid.
+              </p>
+              <ul className="space-y-2 text-sm text-slate-300">
+                {[
+                  "A1/A2, videographer, projectionist, editor, etc.",
+                  "You work W-9 / 1099 for multiple clients",
+                  "You clock in/out with overtime rules",
+                  "You bill gear rentals + per diem + mileage",
+                  "You need invoices the production co will actually pay",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <svg className="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a href={FREELANCE_URL} className="mt-6 inline-block text-sm font-semibold text-purple-400 hover:text-purple-300 transition-colors">
+                Start with Freelance →
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -471,6 +644,67 @@ function App() {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 px-6 border-t border-white/5">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+              Questions we hear a lot
+            </h2>
+            <p className="text-slate-400">If we miss yours, <a href="mailto:support@sdubmedia.com" className="text-[#0088ff] hover:underline">email us</a> — a real person answers.</p>
+          </div>
+
+          <div className="space-y-3">
+            {[
+              {
+                q: "Do I have to quit QuickBooks?",
+                a: "No. Slate isn't accounting software — it's the operations layer that feeds your accounting. Keep QuickBooks for books and taxes; use Slate for scheduling, crew pay, invoicing, and profitability. Export CSVs any time."
+              },
+              {
+                q: "What's included in the free tier?",
+                a: "Up to 10 projects with full functionality — calendar, clients, crew, invoicing, reports. When you hit the cap, upgrade to Basic ($9.99/mo) or Pro ($19.99/mo) for unlimited projects. Paid plans include a 14-day free trial."
+              },
+              {
+                q: "Can I invite my crew? What can they see?",
+                a: "Yes. Four roles: Owner (you), Partner (co-owner access), Staff (their schedule + their pay), Client (their projects only). Per-user feature overrides if the defaults don't fit."
+              },
+              {
+                q: "Is my data safe? Where does it live?",
+                a: "Postgres on Supabase, encrypted in transit and at rest. Row-level security scopes every query to your org — nobody else can see your data, not even other Slate customers. We never sell your data and never train AI models on it."
+              },
+              {
+                q: "Can I export my data?",
+                a: "Yes. CSV export on reports, invoices, billing summaries, and mileage. On account deletion, we remove your data within 30 days. Your data is yours."
+              },
+              {
+                q: "What happens if I cancel?",
+                a: "You keep access through the end of your current billing period. Your data stays — nothing is deleted. If you come back, everything's right where you left it. Pro-only features hide on free/Basic, but the underlying records are preserved."
+              },
+              {
+                q: "Can I switch between Basic and Pro?",
+                a: "Any time, from the Subscription link in the sidebar. Stripe handles proration automatically — no double-charging."
+              },
+              {
+                q: "I'm a freelancer, not a company. Is Slate for me?",
+                a: "Not Slate — but Slate Freelance is. It's a separate app tuned for live-event freelancers (clock in/out, overtime, gear billing, mileage, per diem). Same team. freelance.sdubmedia.com."
+              },
+            ].map((item, i) => (
+              <details key={i} className="group rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+                <summary className="cursor-pointer list-none p-5 flex items-center justify-between gap-4">
+                  <span className="text-sm font-semibold text-white">{item.q}</span>
+                  <svg className="w-4 h-4 text-slate-500 shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="px-5 pb-5 text-sm text-slate-400 leading-relaxed">
+                  {item.a}
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
