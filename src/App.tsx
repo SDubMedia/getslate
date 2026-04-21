@@ -25,7 +25,7 @@ function App() {
       </nav>
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      <section className="relative pt-28 sm:pt-32 pb-14 sm:pb-20 px-6 overflow-hidden">
         {/* Animated gradient blobs */}
         <style>{`
           @keyframes heroBlob1 {
@@ -102,7 +102,7 @@ function App() {
             Built for a production company, by a production company
           </div>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
-            Run your production<br />company,
+            Run your production company,
             <span className="bg-gradient-to-r from-[#00d4ff] to-[#0088ff] bg-clip-text text-transparent"> not a spreadsheet.</span>
           </h1>
           <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -118,7 +118,7 @@ function App() {
       </section>
 
       {/* Dashboard preview — CSS mockup. Swap for a real screenshot when available. */}
-      <section className="pb-20 px-6">
+      <section className="pb-14 sm:pb-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="relative">
             {/* Subtle glow */}
@@ -209,9 +209,9 @@ function App() {
       </section>
 
       {/* Problem Statement */}
-      <section className="py-20 px-6 border-t border-white/5">
+      <section className="py-14 sm:py-20 px-6 border-t border-white/5">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 leading-tight" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
             Sound familiar?
           </h2>
           <div className="max-w-2xl mx-auto space-y-4 text-lg text-slate-400">
@@ -225,10 +225,10 @@ function App() {
       </section>
 
       {/* Who this is for */}
-      <section className="py-20 px-6">
+      <section className="py-14 sm:py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 leading-tight" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
               Two products. Pick the one that fits.
             </h2>
             <p className="text-slate-400">We split production companies and freelancers into separate apps because their problems are actually different.</p>
@@ -236,7 +236,7 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Production companies */}
-            <div className="rounded-2xl border border-[#0088ff]/30 bg-[#0088ff]/5 p-8">
+            <div className="rounded-2xl border border-[#0088ff]/30 bg-[#0088ff]/5 p-6 sm:p-8">
               <div className="w-10 h-10 rounded-lg bg-[#0088ff]/20 flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-[#0088ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -270,7 +270,7 @@ function App() {
             </div>
 
             {/* Freelancers */}
-            <div className="rounded-2xl border border-purple-500/30 bg-purple-500/5 p-8">
+            <div className="rounded-2xl border border-purple-500/30 bg-purple-500/5 p-6 sm:p-8">
               <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -307,10 +307,10 @@ function App() {
       </section>
 
       {/* What Slate Answers */}
-      <section id="features" className="py-20 px-6 bg-[#0f1629]/50">
+      <section id="features" className="py-14 sm:py-20 px-6 bg-[#0f1629]/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
               Know what you're actually making.
             </h2>
             <p className="text-slate-400 text-lg">Every question you've been guessing at — Slate answers it.</p>
@@ -352,11 +352,12 @@ function App() {
       </section>
 
       {/* Feature List */}
-      <section className="py-20 px-6">
+      <section className="py-14 sm:py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
-              From shoot day to payday. All in one place.
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+              <span className="block sm:inline">From shoot day to payday.</span>{" "}
+              <span className="block sm:inline">All in one place.</span>
             </h2>
           </div>
 
@@ -389,10 +390,10 @@ function App() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 px-6 border-t border-white/5">
+      <section className="py-14 sm:py-20 px-6 border-t border-white/5">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 leading-tight" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
               Built by people who needed this.
             </h2>
             <p className="text-slate-400">Real production crews. Real problems.</p>
@@ -400,7 +401,7 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Geoff — founder story */}
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
               <p className="text-slate-200 text-lg leading-relaxed mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
                 "I kept losing invoices. I had no idea which clients were actually profitable. My P&L lived in my head. I built Slate because nothing else was designed for how a production company actually runs."
               </p>
@@ -416,7 +417,7 @@ function App() {
             </div>
 
             {/* Dave — Freelance design partner */}
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
               <p className="text-slate-200 text-lg leading-relaxed mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
                 "Between clock-ins, per diem, gear rentals, and mileage, tracking a gig is a second job. Slate Freelance finally matches how live-event work actually bills."
               </p>
@@ -435,10 +436,10 @@ function App() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-20 px-6 bg-[#0f1629]/50">
+      <section id="pricing" className="py-14 sm:py-20 px-6 bg-[#0f1629]/50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
               Simple pricing. No surprises.
             </h2>
             <p className="text-slate-400 text-lg">Start free. Upgrade when you outgrow it.</p>
@@ -457,7 +458,7 @@ function App() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Free */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-8">
                 <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Free</h3>
                 <p className="text-sm text-slate-400 mb-6">Try it on a real project</p>
                 <div className="mb-6">
@@ -488,7 +489,7 @@ function App() {
               </div>
 
               {/* Basic */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
                 <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Basic</h3>
                 <p className="text-sm text-slate-400 mb-6">Everything you need to manage productions</p>
                 <div className="mb-6">
@@ -521,7 +522,7 @@ function App() {
               </div>
 
               {/* Pro */}
-              <div className="rounded-2xl border-2 border-[#0088ff]/50 bg-[#0088ff]/5 p-8 relative">
+              <div className="rounded-2xl border-2 border-[#0088ff]/50 bg-[#0088ff]/5 p-6 sm:p-8 relative">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#0088ff] text-white text-xs font-bold rounded-full">
                   MOST POPULAR
                 </div>
@@ -574,7 +575,7 @@ function App() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Free */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-8">
                 <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Free</h3>
                 <p className="text-sm text-slate-400 mb-6">Try it on a real gig</p>
                 <div className="mb-6">
@@ -606,7 +607,7 @@ function App() {
               </div>
 
               {/* Freelance */}
-              <div className="rounded-2xl border border-purple-500/20 bg-purple-500/[0.03] p-8">
+              <div className="rounded-2xl border border-purple-500/20 bg-purple-500/[0.03] p-6 sm:p-8">
                 <h3 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Freelance</h3>
                 <p className="text-sm text-slate-400 mb-6">Everything to manage your gigs and get paid</p>
                 <div className="mb-6">
@@ -640,7 +641,7 @@ function App() {
               </div>
 
               {/* Freelance Pro */}
-              <div className="rounded-2xl border-2 border-purple-500/50 bg-purple-500/5 p-8 relative">
+              <div className="rounded-2xl border-2 border-purple-500/50 bg-purple-500/5 p-6 sm:p-8 relative">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-full">
                   BEST VALUE
                 </div>
@@ -683,10 +684,10 @@ function App() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-6 border-t border-white/5">
+      <section className="py-14 sm:py-20 px-6 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 leading-tight" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
               Questions we hear a lot
             </h2>
             <p className="text-slate-400">If we miss yours, <a href="mailto:support@sdubmedia.com" className="text-[#0088ff] hover:underline">email us</a> — a real person answers.</p>
@@ -744,9 +745,9 @@ function App() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6">
+      <section className="py-16 sm:py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
             Ditch the spreadsheets. Run your business.
           </h2>
           <p className="text-slate-400 text-lg mb-10">
