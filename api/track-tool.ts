@@ -37,7 +37,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const ipHash = createHash("sha256").update(ip).digest("hex").slice(0, 32)
 
   const db = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: false } })
-  await db.from("tool_events").insert({
+  const { error } = await db.from("tool_events").insert({
     id: `evt_${nanoid()}`,
     tool_slug: s,
     event_type: t,
@@ -46,5 +46,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     utm_source: clean(utm_source).slice(0, 100) || null,
     utm_campaign: clean(utm_campaign).slice(0, 100) || null,
   })
+  if (error) return res.status(500).json({ error: error.message, details: error.details })
   return res.status(200).json({ ok: true })
 }

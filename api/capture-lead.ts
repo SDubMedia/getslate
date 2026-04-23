@@ -68,15 +68,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     .maybeSingle()
 
   if (existing) {
-    await db.from("tool_leads")
+    const { error } = await db.from("tool_leads")
       .update({
         last_seen_at: new Date().toISOString(),
         capture_count: (existing.capture_count || 0) + 1,
       })
       .eq("id", existing.id)
+    if (error) return res.status(500).json({ error: error.message, details: error.details })
   } else {
     const id = `lead_${nanoid()}`
-    await db.from("tool_leads").insert({
+    const { error } = await db.from("tool_leads").insert({
       id,
       email,
       source: src,
@@ -86,6 +87,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       utm_source: clean(utm_source) || null,
       utm_campaign: clean(utm_campaign) || null,
     })
+    if (error) return res.status(500).json({ error: error.message, details: error.details })
   }
 
   // Fire-and-forget Resend audience push (don't block response).
