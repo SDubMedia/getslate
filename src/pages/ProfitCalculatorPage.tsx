@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react"
+import { useToolCapture } from "../lib/useToolCapture"
 
 const APP_URL = "https://slate.sdubmedia.com"
 
@@ -57,6 +58,7 @@ const DEFAULT_OVERHEAD: Overhead = {
 type Step = 1 | 2 | 3 | 4
 
 export default function ProfitCalculatorPage() {
+  const { sheet } = useToolCapture("calculator")
   const [step, setStep] = useState<Step>(1)
   const [crew, setCrew] = useState<CrewRate[]>(DEFAULT_CREW)
   const [projects, setProjects] = useState<ProjectType[]>(DEFAULT_PROJECTS)
@@ -327,6 +329,7 @@ export default function ProfitCalculatorPage() {
           </section>
         )}
       </div>
+      {sheet}
     </div>
   )
 }

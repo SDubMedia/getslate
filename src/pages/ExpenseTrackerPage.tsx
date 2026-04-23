@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react"
+import { useToolCapture } from "../lib/useToolCapture"
 
 const APP_URL = "https://slate.sdubmedia.com"
 
@@ -78,6 +79,7 @@ function pickColumns(header: string[]): { date: number; desc: number; amount: nu
 }
 
 export default function ExpenseTrackerPage() {
+  const { onDownload, sheet } = useToolCapture("expenses")
   const [raw, setRaw] = useState("")
   const [rows, setRows] = useState<Row[]>([])
   const [error, setError] = useState("")
@@ -136,18 +138,20 @@ export default function ExpenseTrackerPage() {
   }
 
   function downloadCSV() {
-    const header = ["Date", "Description", "Amount", "Category"]
-    const lines = [header.join(",")]
-    for (const r of rows) {
-      lines.push([r.date, `"${r.description.replace(/"/g, '""')}"`, r.amount.toFixed(2), r.category].join(","))
-    }
-    const blob = new Blob([lines.join("\n")], { type: "text/csv" })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement("a")
-    a.href = url
-    a.download = "categorized-expenses.csv"
-    a.click()
-    URL.revokeObjectURL(url)
+    onDownload(() => {
+      const header = ["Date", "Description", "Amount", "Category"]
+      const lines = [header.join(",")]
+      for (const r of rows) {
+        lines.push([r.date, `"${r.description.replace(/"/g, '""')}"`, r.amount.toFixed(2), r.category].join(","))
+      }
+      const blob = new Blob([lines.join("\n")], { type: "text/csv" })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement("a")
+      a.href = url
+      a.download = "categorized-expenses.csv"
+      a.click()
+      URL.revokeObjectURL(url)
+    })
   }
 
   return (
@@ -289,6 +293,7 @@ export default function ExpenseTrackerPage() {
           </a>
         </div>
       </div>
+      {sheet}
     </div>
   )
 }

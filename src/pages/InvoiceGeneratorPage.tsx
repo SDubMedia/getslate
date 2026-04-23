@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react"
+import { useToolCapture } from "../lib/useToolCapture"
 
 const APP_URL = "https://slate.sdubmedia.com"
 
@@ -29,6 +30,7 @@ function daysFromNow(n: number): string {
 }
 
 export default function InvoiceGeneratorPage() {
+  const { onDownload, sheet } = useToolCapture("invoice-generator")
   // From (your business)
   const [fromName, setFromName] = useState("")
   const [fromEmail, setFromEmail] = useState("")
@@ -72,7 +74,7 @@ export default function InvoiceGeneratorPage() {
   }
 
   function printInvoice() {
-    window.print()
+    onDownload(() => window.print())
   }
 
   return (
@@ -335,6 +337,8 @@ export default function InvoiceGeneratorPage() {
           </div>
         </div>
       </div>
+
+      {sheet}
     </div>
   )
 }

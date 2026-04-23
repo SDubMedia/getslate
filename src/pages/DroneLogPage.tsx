@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
+import { useToolCapture } from "../lib/useToolCapture"
 
 const APP_URL = "https://slate.sdubmedia.com"
 const STORAGE_KEY = "getslate_drone_log_v1"
@@ -35,6 +36,7 @@ function emptyFlight(): Flight {
 }
 
 export default function DroneLogPage() {
+  const { onDownload, sheet } = useToolCapture("drone-log")
   const [flights, setFlights] = useState<Flight[]>([])
   const [draft, setDraft] = useState<Flight>(emptyFlight())
   const [loaded, setLoaded] = useState(false)
@@ -68,22 +70,24 @@ export default function DroneLogPage() {
   const totalHours = (totalMinutes / 60).toFixed(1)
 
   function downloadCSV() {
-    const header = ["Date", "Pilot", "Aircraft", "Serial #", "Location", "Purpose", "Duration (min)", "Conditions", "Notes"]
-    const lines = [header.join(",")]
-    for (const f of flights) {
-      lines.push([
-        f.date, quote(f.pilotName), quote(f.aircraft), quote(f.serial),
-        quote(f.location), quote(f.purpose), String(f.duration),
-        quote(f.conditions), quote(f.notes),
-      ].join(","))
-    }
-    const blob = new Blob([lines.join("\n")], { type: "text/csv" })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement("a")
-    a.href = url
-    a.download = `drone-flight-log-${today()}.csv`
-    a.click()
-    URL.revokeObjectURL(url)
+    onDownload(() => {
+      const header = ["Date", "Pilot", "Aircraft", "Serial #", "Location", "Purpose", "Duration (min)", "Conditions", "Notes"]
+      const lines = [header.join(",")]
+      for (const f of flights) {
+        lines.push([
+          f.date, quote(f.pilotName), quote(f.aircraft), quote(f.serial),
+          quote(f.location), quote(f.purpose), String(f.duration),
+          quote(f.conditions), quote(f.notes),
+        ].join(","))
+      }
+      const blob = new Blob([lines.join("\n")], { type: "text/csv" })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement("a")
+      a.href = url
+      a.download = `drone-flight-log-${today()}.csv`
+      a.click()
+      URL.revokeObjectURL(url)
+    })
   }
 
   function clearAll() {
@@ -100,7 +104,7 @@ export default function DroneLogPage() {
             <span className="text-base font-bold tracking-wide" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Slate</span>
           </a>
           <div className="flex items-center gap-2">
-            <button onClick={() => window.print()} className="hidden sm:inline-flex px-3 py-2 bg-white/5 border border-white/10 text-white text-xs font-semibold rounded-lg hover:bg-white/10 transition-colors">Print PDF</button>
+            <button onClick={() => onDownload()} className="hidden sm:inline-flex px-3 py-2 bg-white/5 border border-white/10 text-white text-xs font-semibold rounded-lg hover:bg-white/10 transition-colors">Print PDF</button>
             <button onClick={downloadCSV} disabled={flights.length === 0} className="px-3 py-2 bg-[#0088ff] text-white text-xs font-semibold rounded-lg hover:bg-[#0066dd] transition-colors disabled:opacity-40">Download CSV</button>
           </div>
         </div>
@@ -239,6 +243,8 @@ export default function DroneLogPage() {
           <p style={{ marginTop: 40, fontSize: 10, color: "#888", textAlign: "center" }}>Generated free by Slate · getslate.net</p>
         </div>
       </div>
+
+      {sheet}
     </div>
   )
 }

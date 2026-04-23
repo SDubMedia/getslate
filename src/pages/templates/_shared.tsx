@@ -1,5 +1,6 @@
-import { useEffect, type ReactNode } from "react"
+import { useEffect, useState, type ReactNode } from "react"
 import RelatedTools from "../../components/RelatedTools"
+import EmailCaptureSheet, { hasDismissedEmailSheet } from "../../components/EmailCaptureSheet"
 import { trackTool } from "../../lib/trackTool"
 
 export const APP_URL = "https://slate.sdubmedia.com"
@@ -22,9 +23,21 @@ interface ShellProps {
 }
 
 export function TemplateShell({ title, subtitle, slug, children }: ShellProps) {
+  const [showSheet, setShowSheet] = useState(false)
+
   useEffect(() => {
     if (slug) trackTool(slug, "view")
   }, [slug])
+
+  function handleDownload() {
+    if (slug) trackTool(slug, "download")
+    window.print()
+    // Show email capture sheet after they return from print dialog,
+    // unless they've already seen/dismissed it this session.
+    if (slug && !hasDismissedEmailSheet()) {
+      setTimeout(() => setShowSheet(true), 600)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-[#0a0e17] text-white">
@@ -35,7 +48,7 @@ export function TemplateShell({ title, subtitle, slug, children }: ShellProps) {
             <span className="text-base font-bold tracking-wide" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Slate</span>
           </a>
           <button
-            onClick={() => window.print()}
+            onClick={handleDownload}
             className="px-4 py-2 bg-[#0088ff] text-white text-sm font-semibold rounded-lg hover:bg-[#0066dd] transition-colors"
           >
             Download PDF
@@ -71,6 +84,14 @@ export function TemplateShell({ title, subtitle, slug, children }: ShellProps) {
           </a>
         </div>
       </div>
+
+      {slug && (
+        <EmailCaptureSheet
+          slug={slug}
+          open={showSheet}
+          onClose={() => setShowSheet(false)}
+        />
+      )}
     </div>
   )
 }
