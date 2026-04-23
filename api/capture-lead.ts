@@ -90,16 +90,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (error) return res.status(500).json({ error: error.message, details: error.details })
   }
 
-  // Fire-and-forget Resend audience push (don't block response).
+  // Push to Resend audience. MUST be awaited — Vercel kills pending
+  // promises when the handler returns, so fire-and-forget drops silently.
+  // "already exists" is non-fatal; we return 200 regardless.
   if (RESEND_KEY && RESEND_AUDIENCE_ID) {
-    fetch(`https://api.resend.com/audiences/${RESEND_AUDIENCE_ID}/contacts`, {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${RESEND_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, unsubscribed: false }),
-    }).catch(() => {}) // Audience may already contain the email — non-fatal
+    try {
+      await fetch(`https://api.resend.com/audiences/${RESEND_AUDIENCE_ID}/contacts`, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${RESEND_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, unsubscribed: false }),
+      })
+    } catch {
+      // network error — DB write already succeeded, so still return ok
+    }
   }
 
   return res.status(200).json({ ok: true })
