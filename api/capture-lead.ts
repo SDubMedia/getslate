@@ -36,9 +36,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") return res.status(405).json({ error: "POST only" })
   if (!SUPABASE_URL || !SUPABASE_KEY) return res.status(500).json({ error: "Not configured" })
 
-  const { email: rawEmail, source, context, referrer, utm_source, utm_campaign } = (req.body || {}) as any
+  const { email: rawEmail, first_name, source, context, referrer, utm_source, utm_campaign } = (req.body || {}) as any
   const email = clean(rawEmail).toLowerCase()
   const src = clean(source)
+  const fn = clean(first_name).slice(0, 80) || null
 
   if (!email || !EMAIL_RE.test(email)) return res.status(400).json({ error: "Invalid email" })
   if (!src) return res.status(400).json({ error: "Missing source" })
@@ -72,6 +73,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       .update({
         last_seen_at: new Date().toISOString(),
         capture_count: (existing.capture_count || 0) + 1,
+        // Update first_name only if we got one AND the row doesn't have one already.
+        ...(fn ? { first_name: fn } : {}),
       })
       .eq("id", existing.id)
     if (error) return res.status(500).json({ error: error.message, details: error.details })
@@ -80,6 +83,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { error } = await db.from("tool_leads").insert({
       id,
       email,
+      first_name: fn,
       source: src,
       context: clean(context) || null,
       ip_hash: ipHash,

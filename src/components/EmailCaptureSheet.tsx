@@ -20,12 +20,14 @@ export function markEmailSheetSeen() {
 }
 
 export default function EmailCaptureSheet({ slug, open, onClose }: Props) {
+  const [firstName, setFirstName] = useState("")
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<Status>("idle")
   const [error, setError] = useState("")
 
   useEffect(() => {
     if (open) {
+      setFirstName("")
       setEmail("")
       setStatus("idle")
       setError("")
@@ -48,6 +50,7 @@ export default function EmailCaptureSheet({ slug, open, onClose }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email,
+          first_name: firstName || null,
           source: slug,
           context: "download-sheet",
           referrer: document.referrer || null,
@@ -116,13 +119,21 @@ export default function EmailCaptureSheet({ slug, open, onClose }: Props) {
 
               <form onSubmit={submit} className="space-y-2">
                 <input
+                  type="text"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  placeholder="First name (optional)"
+                  disabled={status === "submitting"}
+                  autoFocus
+                  className="w-full bg-[#111827] border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#0088ff] outline-none disabled:opacity-50"
+                />
+                <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   disabled={status === "submitting"}
-                  autoFocus
                   className="w-full bg-[#111827] border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#0088ff] outline-none disabled:opacity-50"
                 />
                 {error && (
