@@ -1,4 +1,6 @@
-import type { ReactNode } from "react"
+import { useEffect, type ReactNode } from "react"
+import RelatedTools from "../../components/RelatedTools"
+import { trackTool } from "../../lib/trackTool"
 
 export const APP_URL = "https://slate.sdubmedia.com"
 
@@ -15,10 +17,15 @@ export function formatDate(iso: string): string {
 interface ShellProps {
   title: string
   subtitle?: string
+  slug?: string
   children: ReactNode
 }
 
-export function TemplateShell({ title, subtitle, children }: ShellProps) {
+export function TemplateShell({ title, subtitle, slug, children }: ShellProps) {
+  useEffect(() => {
+    if (slug) trackTool(slug, "view")
+  }, [slug])
+
   return (
     <div className="min-h-screen bg-[#0a0e17] text-white">
       <header className="print:hidden border-b border-white/10 bg-[#0a0e17]/95 backdrop-blur-xl sticky top-0 z-10">
@@ -49,6 +56,8 @@ export function TemplateShell({ title, subtitle, children }: ShellProps) {
         </div>
 
         {children}
+
+        {slug && <RelatedTools slug={slug} />}
 
         <div className="mt-12 rounded-xl border border-[#0088ff]/30 bg-[#0088ff]/5 p-6 text-center">
           <h3 className="text-lg font-semibold mb-2" style={{ fontFamily: "'Space Grotesk', system-ui" }}>

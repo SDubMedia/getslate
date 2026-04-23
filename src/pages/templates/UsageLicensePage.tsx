@@ -12,7 +12,7 @@ export default function UsageLicensePage() {
   const [fee, setFee] = useState("")
 
   return (
-    <TemplateShell title="Usage License / Rights Grant" subtitle="Granular usage rights for specific assets. Stop giving away unlimited rights.">
+    <TemplateShell slug="usage-license" title="Usage License / Rights Grant" subtitle="Granular usage rights for specific assets. Stop giving away unlimited rights.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="Licensor (you, the rights holder)" value={licensor} onChange={setLicensor} />

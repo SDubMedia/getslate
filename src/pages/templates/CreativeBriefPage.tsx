@@ -20,7 +20,7 @@ export default function CreativeBriefPage() {
   const [budget, setBudget] = useState("")
 
   return (
-    <TemplateShell title="Creative Brief" subtitle="Fill this out WITH the client before any work starts. Saves scope fights later.">
+    <TemplateShell slug="creative-brief" title="Creative Brief" subtitle="Fill this out WITH the client before any work starts. Saves scope fights later.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <div className="grid grid-cols-2 gap-3">

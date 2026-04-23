@@ -11,7 +11,7 @@ export default function ModelReleasePage() {
   const [usage, setUsage] = useState("advertising, promotional, editorial, commercial, and educational use in any and all media, worldwide, in perpetuity")
 
   return (
-    <TemplateShell title="Model Release Form" subtitle="Standard adult model release — for photos and video.">
+    <TemplateShell slug="model-release" title="Model Release Form" subtitle="Standard adult model release — for photos and video.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="Model's full legal name" value={modelName} onChange={setModelName} />

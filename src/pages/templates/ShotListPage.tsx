@@ -19,7 +19,7 @@ export default function ShotListPage() {
   }
 
   return (
-    <TemplateShell title="Shot List" subtitle="Scene-by-scene breakdown. Print, clip to the slate, check shots off as you go.">
+    <TemplateShell slug="shot-list" title="Shot List" subtitle="Scene-by-scene breakdown. Print, clip to the slate, check shots off as you go.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <div className="grid grid-cols-3 gap-3">

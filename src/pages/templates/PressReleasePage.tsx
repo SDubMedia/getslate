@@ -16,7 +16,7 @@ export default function PressReleasePage() {
   const [contactPhone, setContactPhone] = useState("")
 
   return (
-    <TemplateShell title="Press Release Template" subtitle="AP-style announcement. For project launches, company news, milestones.">
+    <TemplateShell slug="press-release" title="Press Release Template" subtitle="AP-style announcement. For project launches, company news, milestones.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="Headline" value={headline} onChange={setHeadline} placeholder="Your Production Co Launches Flagship Series for Major Brand" />

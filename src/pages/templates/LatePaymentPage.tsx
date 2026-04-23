@@ -52,7 +52,7 @@ ${val(yourBusiness)}`,
   }
 
   return (
-    <TemplateShell title="Late Payment Letter" subtitle="Three tones. Fill in the details, pick the energy, send.">
+    <TemplateShell slug="late-payment" title="Late Payment Letter" subtitle="Three tones. Fill in the details, pick the energy, send.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Details</h2>

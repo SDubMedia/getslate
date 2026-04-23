@@ -20,7 +20,7 @@ export default function PaymentPlanPage() {
   }
 
   return (
-    <TemplateShell title="Payment Plan Agreement" subtitle="Client can't pay in one chunk? Map out a schedule, get it signed, keep the deal.">
+    <TemplateShell slug="payment-plan" title="Payment Plan Agreement" subtitle="Client can't pay in one chunk? Map out a schedule, get it signed, keep the deal.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="Provider (you)" value={provider} onChange={setProvider} />

@@ -10,7 +10,7 @@ export default function TestimonialRequestPage() {
   )
 
   return (
-    <TemplateShell title="Testimonial Request Letter" subtitle="Short, human ask. Pair with the in-app prompt that fires when a client pays.">
+    <TemplateShell slug="testimonial-request" title="Testimonial Request Letter" subtitle="Short, human ask. Pair with the in-app prompt that fires when a client pays.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="From (your name)" value={from} onChange={setFrom} />

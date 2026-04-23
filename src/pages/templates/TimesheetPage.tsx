@@ -28,7 +28,7 @@ export default function TimesheetPage() {
   const totalHours = rows.reduce((s, r) => s + hoursWorked(r.in, r.out, r.breakMin), 0)
 
   return (
-    <TemplateShell title="Timesheet / Timecard" subtitle="Hourly crew logs hours, client signs, you invoice against it.">
+    <TemplateShell slug="timesheet" title="Timesheet / Timecard" subtitle="Hourly crew logs hours, client signs, you invoice against it.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <div className="grid grid-cols-2 gap-3">

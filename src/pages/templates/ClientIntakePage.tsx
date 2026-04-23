@@ -19,7 +19,7 @@ export default function ClientIntakePage() {
   const [worked, setWorked] = useState("")
 
   return (
-    <TemplateShell title="Client Intake Questionnaire" subtitle="Send before kickoff. Their answers become your creative brief.">
+    <TemplateShell slug="client-intake" title="Client Intake Questionnaire" subtitle="Send before kickoff. Their answers become your creative brief.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="Client / company" value={clientName} onChange={setClientName} />

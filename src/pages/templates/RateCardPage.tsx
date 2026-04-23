@@ -29,7 +29,7 @@ export default function RateCardPage() {
   }
 
   return (
-    <TemplateShell title="Rate Card" subtitle="Clean, downloadable rate sheet. Send to inquiries instead of a text thread.">
+    <TemplateShell slug="rate-card" title="Rate Card" subtitle="Clean, downloadable rate sheet. Send to inquiries instead of a text thread.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Business</h2>

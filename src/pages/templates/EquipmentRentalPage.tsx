@@ -12,7 +12,7 @@ export default function EquipmentRentalPage() {
   const [insurance, setInsurance] = useState("Renter provides certificate of insurance naming Owner as additionally insured, with coverage equal to the replacement value.")
 
   return (
-    <TemplateShell title="Equipment Rental Agreement" subtitle="For renting gear TO a crew (owner) or FROM a house (renter).">
+    <TemplateShell slug="equipment-rental" title="Equipment Rental Agreement" subtitle="For renting gear TO a crew (owner) or FROM a house (renter).">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="Owner (equipment provider)" value={owner} onChange={setOwner} />

@@ -11,7 +11,7 @@ export default function IcAgreementPage() {
   const [paymentTerms, setPaymentTerms] = useState("Net 14 after invoice.")
 
   return (
-    <TemplateShell title="Independent Contractor Agreement (Work-for-Hire)" subtitle="For when YOU hire a 1099 editor, DP, or PA. Includes IP assignment — critical.">
+    <TemplateShell slug="ic-agreement" title="Independent Contractor Agreement (Work-for-Hire)" subtitle="For when YOU hire a 1099 editor, DP, or PA. Includes IP assignment — critical.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="Your company (Hirer)" value={company} onChange={setCompany} />

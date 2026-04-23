@@ -20,7 +20,7 @@ export default function CaseStudyPage() {
   const [metric3Value, setMetric3Value] = useState("")
 
   return (
-    <TemplateShell title="Case Study Template" subtitle="Structure for telling a project story. Fill out, print, drop in your portfolio.">
+    <TemplateShell slug="case-study" title="Case Study Template" subtitle="Structure for telling a project story. Fill out, print, drop in your portfolio.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <div className="grid grid-cols-2 gap-3">

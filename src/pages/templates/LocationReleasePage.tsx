@@ -11,7 +11,7 @@ export default function LocationReleasePage() {
   const [compensation, setCompensation] = useState("the agreed-upon location fee")
 
   return (
-    <TemplateShell title="Location Release Form" subtitle="Permission to shoot on private property.">
+    <TemplateShell slug="location-release" title="Location Release Form" subtitle="Permission to shoot on private property.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="Property owner name" value={ownerName} onChange={setOwnerName} />

@@ -9,7 +9,7 @@ export default function W9RequestPage() {
   const [dueDate, setDueDate] = useState("")
 
   return (
-    <TemplateShell title="W-9 Request Letter" subtitle="Professional ask for a contractor's W-9 before year-end.">
+    <TemplateShell slug="w9-request" title="W-9 Request Letter" subtitle="Professional ask for a contractor's W-9 before year-end.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="From (your business)" value={from} onChange={setFrom} />

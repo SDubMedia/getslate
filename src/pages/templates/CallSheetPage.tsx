@@ -44,7 +44,7 @@ export default function CallSheetPage() {
   function updateSched(id: string, patch: Partial<Sched>) { setSchedule((p) => p.map((r) => (r.id === id ? { ...r, ...patch } : r))) }
 
   return (
-    <TemplateShell title="Call Sheet" subtitle="Shoot-day bible. Call times, crew, weather, hospital, schedule — print one per crew member.">
+    <TemplateShell slug="call-sheet" title="Call Sheet" subtitle="Shoot-day bible. Call times, crew, weather, hospital, schedule — print one per crew member.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <div className="grid grid-cols-2 gap-3">

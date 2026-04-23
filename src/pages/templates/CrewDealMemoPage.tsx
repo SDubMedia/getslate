@@ -16,7 +16,7 @@ export default function CrewDealMemoPage() {
   const [notes, setNotes] = useState("")
 
   return (
-    <TemplateShell title="Crew Deal Memo" subtitle="One-page day-rate booking. Send, sign, show up.">
+    <TemplateShell slug="crew-deal-memo" title="Crew Deal Memo" subtitle="One-page day-rate booking. Send, sign, show up.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="Production company" value={production} onChange={setProduction} />

@@ -14,7 +14,7 @@ export default function ChangeOrderPage() {
   const newTotal = ((parseFloat(originalFee) || 0) + (parseFloat(additionalFee) || 0)).toFixed(2)
 
   return (
-    <TemplateShell title="Change Order" subtitle="Scope changed mid-project — document it, get it signed, protect your margin.">
+    <TemplateShell slug="change-order" title="Change Order" subtitle="Scope changed mid-project — document it, get it signed, protect your margin.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="Provider (you)" value={provider} onChange={setProvider} />

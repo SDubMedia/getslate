@@ -12,7 +12,7 @@ export default function MusicLicensePage() {
   const [budget, setBudget] = useState("")
 
   return (
-    <TemplateShell title="Music License Request" subtitle="Clean ask for sync / background music rights from artists or composers.">
+    <TemplateShell slug="music-license" title="Music License Request" subtitle="Clean ask for sync / background music rights from artists or composers.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="Requester (you / your company)" value={requester} onChange={setRequester} />

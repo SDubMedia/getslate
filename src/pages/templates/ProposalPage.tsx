@@ -28,7 +28,7 @@ export default function ProposalPage() {
   function update(id: string, patch: Partial<Line>) { setLines((p) => p.map((l) => (l.id === id ? { ...l, ...patch } : l))) }
 
   return (
-    <TemplateShell title="Proposal / Statement of Work" subtitle="Pre-contract pitch. Send this before the contract — if they say yes, contract follows.">
+    <TemplateShell slug="proposal" title="Proposal / Statement of Work" subtitle="Pre-contract pitch. Send this before the contract — if they say yes, contract follows.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">From</h2>

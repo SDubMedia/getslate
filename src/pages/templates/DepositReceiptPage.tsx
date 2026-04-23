@@ -11,7 +11,7 @@ export default function DepositReceiptPage() {
   const [remaining, setRemaining] = useState("")
 
   return (
-    <TemplateShell title="Deposit Receipt" subtitle="Formal acknowledgment when a deposit arrives — some clients need it for their books.">
+    <TemplateShell slug="deposit-receipt" title="Deposit Receipt" subtitle="Formal acknowledgment when a deposit arrives — some clients need it for their books.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="From (your business)" value={from} onChange={setFrom} />

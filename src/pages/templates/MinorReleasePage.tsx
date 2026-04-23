@@ -13,7 +13,7 @@ export default function MinorReleasePage() {
   const [compensation, setCompensation] = useState("the agreed-upon fee")
 
   return (
-    <TemplateShell title="Minor Model Release" subtitle="Required parental consent for anyone under 18. Legally distinct from the adult release.">
+    <TemplateShell slug="minor-release" title="Minor Model Release" subtitle="Required parental consent for anyone under 18. Legally distinct from the adult release.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <div className="grid grid-cols-2 gap-3">

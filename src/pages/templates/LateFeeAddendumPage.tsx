@@ -11,7 +11,7 @@ export default function LateFeeAddendumPage() {
   const [feeAmount, setFeeAmount] = useState("1.5")
 
   return (
-    <TemplateShell title="Late Fee Addendum" subtitle="Amends an existing contract to add late-payment penalties. Both parties sign.">
+    <TemplateShell slug="late-fee-addendum" title="Late Fee Addendum" subtitle="Amends an existing contract to add late-payment penalties. Both parties sign.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <Field label="Provider (you)" value={provider} onChange={setProvider} />

@@ -10,7 +10,7 @@ export default function NdaPage() {
   const [termYears, setTermYears] = useState("3")
 
   return (
-    <TemplateShell title="Mutual NDA" subtitle="Both parties protect what they share. Standard short-form agreement.">
+    <TemplateShell slug="nda" title="Mutual NDA" subtitle="Both parties protect what they share. Standard short-form agreement.">
       <div className="space-y-4">
         <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 space-y-3">
           <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Party A</h2>
