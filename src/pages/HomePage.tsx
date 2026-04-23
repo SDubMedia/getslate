@@ -22,8 +22,8 @@ export default function HomePage() {
             <a href="/tools" className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Free tools</a>
             <a href="#pricing" className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Pricing</a>
             <a href="#features" className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Features</a>
-            <a href={APP_URL} className="text-sm text-slate-400 hover:text-white transition-colors">Log In</a>
-            <a href={APP_URL} className="px-4 py-2 bg-[#0088ff] text-white text-sm font-medium rounded-lg hover:bg-[#0066dd] transition-colors">
+            <a href={primaryHref} className="text-sm text-slate-400 hover:text-white transition-colors">Log In</a>
+            <a href={primaryHref} className={`px-4 py-2 text-white text-sm font-medium rounded-lg transition-colors ${isFreelance ? "bg-purple-500 hover:bg-purple-600" : "bg-[#0088ff] hover:bg-[#0066dd]"}`}>
               Start Free Trial
             </a>
           </div>
@@ -248,7 +248,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Who this is for */}
+      {/* Who this is for — only shown before ICP pick. After pick, it's redundant. */}
+      {!icp && (
       <section className="py-14 sm:py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
@@ -329,6 +330,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* What Slate Answers */}
       <section id="features" className="py-14 sm:py-20 px-6 bg-[#0f1629]/50">
@@ -423,8 +425,9 @@ export default function HomePage() {
             <p className="text-slate-400">Real production crews. Real problems.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Geoff — founder story */}
+          <div className={`grid grid-cols-1 ${icp ? "" : "md:grid-cols-2"} gap-6`}>
+            {/* Geoff — founder story (shown for production or no pick) */}
+            {!isFreelance && (
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
               <p className="text-slate-200 text-lg leading-relaxed mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
                 "I kept losing invoices. I had no idea which clients were actually profitable. My P&L lived in my head. I built Slate because nothing else was designed for how a production company actually runs."
@@ -439,8 +442,10 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+            )}
 
-            {/* Dave — Freelance design partner */}
+            {/* Dave — shown for freelance or no pick */}
+            {(isFreelance || !icp) && (
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
               <p className="text-slate-200 text-lg leading-relaxed mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
                 "Between clock-ins, per diem, gear rentals, and mileage, tracking a gig is a second job. Slate Freelance finally matches how live-event work actually bills."
@@ -455,6 +460,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+            )}
           </div>
         </div>
       </section>
@@ -501,7 +507,8 @@ export default function HomePage() {
             <p className="text-slate-400 text-lg">Start free. Upgrade when you outgrow it.</p>
           </div>
 
-          {/* Production Company Plans */}
+          {/* Production Company Plans — hidden when user picked Freelance */}
+          {!isFreelance && (
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-lg bg-[#0088ff]/20 flex items-center justify-center">
@@ -617,8 +624,10 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+          )}
 
-          {/* Freelancer Plans */}
+          {/* Freelancer Plans — hidden when user picked Production */}
+          {(isFreelance || !icp) && (
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
@@ -736,6 +745,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+          )}
         </div>
       </section>
 
@@ -750,7 +760,7 @@ export default function HomePage() {
           </div>
 
           <div className="space-y-3">
-            {[
+            {([
               {
                 q: "Do I have to quit QuickBooks?",
                 a: "No. Slate isn't accounting software — it's the operations layer that feeds your accounting. Keep QuickBooks for books and taxes; use Slate for scheduling, crew pay, invoicing, and profitability. Export CSVs any time."
@@ -781,9 +791,10 @@ export default function HomePage() {
               },
               {
                 q: "I'm a freelancer, not a company. Is Slate for me?",
-                a: "Not Slate — but Slate Freelance is. It's a separate app tuned for live-event freelancers (clock in/out, overtime, gear billing, mileage, per diem). Same team. freelance.sdubmedia.com."
+                a: "Not Slate — but Slate Freelance is. It's a separate app tuned for live-event freelancers (clock in/out, overtime, gear billing, mileage, per diem). Same team. freelance.sdubmedia.com.",
+                hideWhen: "production" as const,
               },
-            ].map((item, i) => (
+            ] as const).filter(item => !("hideWhen" in item) || item.hideWhen !== icp).map((item, i) => (
               <details key={i} className="group rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
                 <summary className="cursor-pointer list-none p-5 flex items-center justify-between gap-4">
                   <span className="text-sm font-semibold text-white">{item.q}</span>
@@ -804,12 +815,14 @@ export default function HomePage() {
       <section className="py-16 sm:py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
-            Ditch the spreadsheets. Run your business.
+            {isFreelance ? "Stop losing money on gigs. Track everything." : "Ditch the spreadsheets. Run your business."}
           </h2>
           <p className="text-slate-400 text-lg mb-10">
-            Join production companies who stopped guessing and started knowing. 10 projects free to start.
+            {isFreelance
+              ? "Join freelance crew who stopped leaving money on the table. 10 gigs free to start."
+              : "Join production companies who stopped guessing and started knowing. 10 projects free to start."}
           </p>
-          <a href={APP_URL} className="inline-flex px-8 py-4 bg-[#0088ff] text-white font-semibold rounded-xl hover:bg-[#0066dd] transition-all hover:shadow-lg hover:shadow-[#0088ff]/25 text-lg">
+          <a href={primaryHref} className={`inline-flex px-8 py-4 text-white font-semibold rounded-xl transition-all hover:shadow-lg text-lg ${isFreelance ? "bg-purple-500 hover:bg-purple-600 hover:shadow-purple-500/25" : "bg-[#0088ff] hover:bg-[#0066dd] hover:shadow-[#0088ff]/25"}`}>
             Start Your Free Trial
           </a>
         </div>
