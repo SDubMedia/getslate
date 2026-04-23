@@ -2,6 +2,9 @@ import "./index.css"
 import { Route, Switch } from "wouter"
 import HomePage from "./pages/HomePage"
 import InvoiceGeneratorPage from "./pages/InvoiceGeneratorPage"
+import ProfitCalculatorPage from "./pages/ProfitCalculatorPage"
+import ExpenseTrackerPage from "./pages/ExpenseTrackerPage"
+import VsPage from "./pages/VsPage"
 
 function NotFound() {
   return (
@@ -20,6 +23,9 @@ export default function App() {
     <Switch>
       <Route path="/" component={HomePage} />
       <Route path="/invoice-generator" component={InvoiceGeneratorPage} />
+      <Route path="/calculator" component={ProfitCalculatorPage} />
+      <Route path="/expenses" component={ExpenseTrackerPage} />
+      <Route path="/vs/:competitor" component={VsPage} />
       <Route component={NotFound} />
     </Switch>
   )

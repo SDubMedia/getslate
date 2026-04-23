@@ -12,6 +12,7 @@ export default function HomePage() {
             <span className="text-lg font-bold text-white tracking-wide" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Slate</span>
           </div>
           <div className="flex items-center gap-4">
+            <a href="#tools" className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Free tools</a>
             <a href="#pricing" className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Pricing</a>
             <a href="#features" className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Features</a>
             <a href={APP_URL} className="text-sm text-slate-400 hover:text-white transition-colors">Log In</a>
@@ -433,6 +434,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Free Tools */}
+      <section id="tools" className="py-14 sm:py-20 px-6 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 leading-tight" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+              Free tools for production pros
+            </h2>
+            <p className="text-slate-400">Use them without signing up. They stand alone — and they'll make Slate feel obvious.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <a href="/invoice-generator" className="group rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#0088ff]/40 transition-colors p-6">
+              <div className="text-3xl mb-3">🧾</div>
+              <h3 className="text-base font-semibold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Invoice Generator</h3>
+              <p className="text-sm text-slate-400 mb-3 leading-relaxed">Fill in a form, download a clean PDF invoice. No signup.</p>
+              <span className="text-xs font-semibold text-[#0088ff] group-hover:text-[#00d4ff]">Open →</span>
+            </a>
+            <a href="/calculator" className="group rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#0088ff]/40 transition-colors p-6">
+              <div className="text-3xl mb-3">📊</div>
+              <h3 className="text-base font-semibold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Profit Calculator</h3>
+              <p className="text-sm text-slate-400 mb-3 leading-relaxed">Answer 3 questions. See what you're actually making per month.</p>
+              <span className="text-xs font-semibold text-[#0088ff] group-hover:text-[#00d4ff]">Open →</span>
+            </a>
+            <a href="/expenses" className="group rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#0088ff]/40 transition-colors p-6">
+              <div className="text-3xl mb-3">💳</div>
+              <h3 className="text-base font-semibold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Expense Categorizer</h3>
+              <p className="text-sm text-slate-400 mb-3 leading-relaxed">Paste a bank CSV. We auto-sort it into Schedule C categories.</p>
+              <span className="text-xs font-semibold text-[#0088ff] group-hover:text-[#00d4ff]">Open →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section id="pricing" className="py-14 sm:py-20 px-6 bg-[#0f1629]/50">
         <div className="max-w-5xl mx-auto">
@@ -768,7 +801,12 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <a href={APP_URL} className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Slate App</a>
               <a href={FREELANCE_URL} className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Freelance App</a>
-              <a href="/invoice-generator" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Free Invoice Generator</a>
+              <a href="/invoice-generator" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Invoice Generator</a>
+              <a href="/calculator" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Profit Calculator</a>
+              <a href="/expenses" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Expense Categorizer</a>
+              <a href="/vs/wrapbook" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">vs Wrapbook</a>
+              <a href="/vs/studio-binder" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">vs StudioBinder</a>
+              <a href="/vs/honeybook" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">vs Honeybook</a>
               <a href={`${APP_URL}/terms`} className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Terms</a>
               <a href={`${APP_URL}/refund`} className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Refunds</a>
               <a href={`${APP_URL}/privacy`} className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Privacy</a>
