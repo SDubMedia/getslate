@@ -12,7 +12,7 @@ export default function HomePage() {
             <span className="text-lg font-bold text-white tracking-wide" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Slate</span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#tools" className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Free tools</a>
+            <a href="/tools" className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Free tools</a>
             <a href="#pricing" className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Pricing</a>
             <a href="#features" className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">Features</a>
             <a href={APP_URL} className="text-sm text-slate-400 hover:text-white transition-colors">Log In</a>

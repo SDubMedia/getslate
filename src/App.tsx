@@ -5,6 +5,14 @@ import InvoiceGeneratorPage from "./pages/InvoiceGeneratorPage"
 import ProfitCalculatorPage from "./pages/ProfitCalculatorPage"
 import ExpenseTrackerPage from "./pages/ExpenseTrackerPage"
 import VsPage from "./pages/VsPage"
+import ToolsIndexPage from "./pages/ToolsIndexPage"
+import DroneLogPage from "./pages/DroneLogPage"
+import ContractTemplatePage from "./pages/templates/ContractTemplatePage"
+import ModelReleasePage from "./pages/templates/ModelReleasePage"
+import LocationReleasePage from "./pages/templates/LocationReleasePage"
+import NdaPage from "./pages/templates/NdaPage"
+import RateCardPage from "./pages/templates/RateCardPage"
+import LatePaymentPage from "./pages/templates/LatePaymentPage"
 
 function NotFound() {
   return (
@@ -22,9 +30,17 @@ export default function App() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
+      <Route path="/tools" component={ToolsIndexPage} />
       <Route path="/invoice-generator" component={InvoiceGeneratorPage} />
       <Route path="/calculator" component={ProfitCalculatorPage} />
       <Route path="/expenses" component={ExpenseTrackerPage} />
+      <Route path="/drone-log" component={DroneLogPage} />
+      <Route path="/templates/contract" component={ContractTemplatePage} />
+      <Route path="/templates/model-release" component={ModelReleasePage} />
+      <Route path="/templates/location-release" component={LocationReleasePage} />
+      <Route path="/templates/nda" component={NdaPage} />
+      <Route path="/templates/rate-card" component={RateCardPage} />
+      <Route path="/templates/late-payment" component={LatePaymentPage} />
       <Route path="/vs/:competitor" component={VsPage} />
       <Route component={NotFound} />
     </Switch>
