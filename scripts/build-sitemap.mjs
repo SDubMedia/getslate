@@ -18,6 +18,10 @@ const hrefs = [...registrySrc.matchAll(/href:\s*"(\/[^"]+)"/g)].map(m => m[1])
 const vsSrc = readFileSync(join(root, "src/pages/vsContent.ts"), "utf8")
 const vsSlugs = [...vsSrc.matchAll(/"([a-z0-9-]+)":\s*\{[^}]*?name:/gs)].map(m => m[1])
 
+// Workflow cluster landing pages (workflowContent.ts).
+const wfSrc = readFileSync(join(root, "src/pages/workflowContent.ts"), "utf8")
+const wfSlugs = [...wfSrc.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map(m => m[1])
+
 const BASE = "https://getslate.net"
 const today = new Date().toISOString().slice(0, 10)
 
@@ -26,6 +30,7 @@ const allPaths = Array.from(new Set([
   ...staticPaths,
   ...hrefs,
   ...vsSlugs.map(s => `/vs/${s}`),
+  ...wfSlugs.map(s => `/workflow/${s}`),
 ]))
 
 const urls = allPaths.map(p => {

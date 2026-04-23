@@ -7,6 +7,7 @@ import ExpenseTrackerPage from "./pages/ExpenseTrackerPage"
 import VsPage from "./pages/VsPage"
 import ToolsIndexPage from "./pages/ToolsIndexPage"
 import DroneLogPage from "./pages/DroneLogPage"
+import WorkflowPage from "./pages/WorkflowPage"
 // Templates
 import ContractTemplatePage from "./pages/templates/ContractTemplatePage"
 import ModelReleasePage from "./pages/templates/ModelReleasePage"
@@ -86,6 +87,7 @@ export default function App() {
       <Route path="/templates/call-sheet" component={CallSheetPage} />
       <Route path="/templates/proposal" component={ProposalPage} />
       <Route path="/vs/:competitor" component={VsPage} />
+      <Route path="/workflow/:slug" component={WorkflowPage} />
       <Route component={NotFound} />
     </Switch>
   )
