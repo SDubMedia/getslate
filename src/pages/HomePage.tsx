@@ -1,7 +1,14 @@
+import { useState } from "react"
+import IcpPicker, { type Icp } from "../components/IcpPicker"
+
 const APP_URL = "https://slate.sdubmedia.com"
 const FREELANCE_URL = "https://freelance.sdubmedia.com"
 
 export default function HomePage() {
+  const [icp, setIcp] = useState<Icp | null>(null)
+  const isFreelance = icp === "freelance"
+  const primaryHref = isFreelance ? FREELANCE_URL : APP_URL
+  const primaryLabel = isFreelance ? "Get Started with Freelance" : "Get Started Free"
   return (
     <div className="min-h-screen bg-[#0a0e17]">
       {/* Nav */}
@@ -96,24 +103,42 @@ export default function HomePage() {
           }} />
         ))}
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0088ff]/10 border border-[#0088ff]/20 text-[#0088ff] text-xs font-medium mb-8">
-            Built for a production company, by a production company
+        {!icp ? (
+          <IcpPicker onPick={setIcp} />
+        ) : (
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
+            <button
+              onClick={() => setIcp(null)}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 text-xs mb-6 transition-colors"
+            >
+              ← Switch
+            </button>
+            <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-8 ${isFreelance ? "bg-purple-500/10 border border-purple-500/20 text-purple-300" : "bg-[#0088ff]/10 border border-[#0088ff]/20 text-[#0088ff]"}`}>
+              {isFreelance ? "Built for live-event + production freelance crew" : "Built for a production company, by a production company"}
+            </div>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+              {isFreelance ? (
+                <>Stop losing money<br />on gigs.<span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"> Track everything.</span></>
+              ) : (
+                <>Run your production company,<span className="bg-gradient-to-r from-[#00d4ff] to-[#0088ff] bg-clip-text text-transparent"> not a spreadsheet.</span></>
+              )}
+            </h1>
+            <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+              {isFreelance
+                ? "Clock in/out with overtime rules, bill gear + per diem + mileage, generate invoices production companies actually pay. All in one app."
+                : "Schedule shoots, pay crew, invoice clients, and see your real profit — all in one place. No more juggling spreadsheets, texts, and QuickBooks."}
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href={primaryHref}
+                className={`px-8 py-4 text-white font-semibold rounded-xl transition-all hover:shadow-lg text-lg ${isFreelance ? "bg-purple-500 hover:bg-purple-600 hover:shadow-purple-500/25" : "bg-[#0088ff] hover:bg-[#0066dd] hover:shadow-[#0088ff]/25"}`}
+              >
+                {primaryLabel}
+              </a>
+              <span className="text-sm text-slate-500">10 {isFreelance ? "gigs" : "projects"} free, forever. No credit card.</span>
+            </div>
           </div>
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
-            Run your production company,
-            <span className="bg-gradient-to-r from-[#00d4ff] to-[#0088ff] bg-clip-text text-transparent"> not a spreadsheet.</span>
-          </h1>
-          <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Schedule shoots, pay crew, invoice clients, and see your real profit — all in one place. No more juggling spreadsheets, texts, and QuickBooks.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href={APP_URL} className="px-8 py-4 bg-[#0088ff] text-white font-semibold rounded-xl hover:bg-[#0066dd] transition-all hover:shadow-lg hover:shadow-[#0088ff]/25 text-lg">
-              Get Started Free
-            </a>
-            <span className="text-sm text-slate-500">10 projects free, forever. No credit card.</span>
-          </div>
-        </div>
+        )}
       </section>
 
       {/* Dashboard preview — CSS mockup. Swap for a real screenshot when available. */}
