@@ -17,6 +17,9 @@ export interface VsEntry {
   pickSlate: string[]
   pickCompetitor: string[]
   verdict: string
+  // Competitor-specific CTA override. If omitted, a generic "Try Slate free" is used.
+  ctaLabel?: string
+  ctaSubtitle?: string
 }
 
 export const VS_CONTENT: Record<string, VsEntry> = {
@@ -51,6 +54,8 @@ export const VS_CONTENT: Record<string, VsEntry> = {
     ],
     verdict:
       "These aren't really competing tools — Wrapbook is a payroll platform, Slate is an operations platform. If you're a 1-10 person video or photo shop running your own shoots, invoicing clients, and paying crew as 1099s, Slate is built for your workflow. If you're running union productions with scale, use Wrapbook for payroll and complement with something like Slate for project visibility.",
+    ctaLabel: "Keep Wrapbook. Add Slate for ops.",
+    ctaSubtitle: "10 projects free — see what Wrapbook can't show you.",
   },
 
   "studio-binder": {
@@ -84,6 +89,8 @@ export const VS_CONTENT: Record<string, VsEntry> = {
     ],
     verdict:
       "These tools don't really overlap. StudioBinder is best-in-class for what it does — script-to-screen pre-production planning. Slate handles the business side. If you use StudioBinder for shoot planning, Slate fits alongside it for the client/money/margin side. Most 1-10 person shops need both eventually.",
+    ctaLabel: "Plan in StudioBinder. Bill + track profit in Slate.",
+    ctaSubtitle: "10 projects free — the business side of production.",
   },
 
   "sprout-studio": {
@@ -117,6 +124,8 @@ export const VS_CONTENT: Record<string, VsEntry> = {
     ],
     verdict:
       "Complementary more than competitive. Sprout is great if you need an integrated gallery + proofing + print store. Slate handles the business layer — projects, crew, profit, invoices — and works alongside any gallery host. Many production companies use Slate + Pixieset and get more flexibility than a bundled tool.",
+    ctaLabel: "Keep your galleries. Run the business in Slate.",
+    ctaSubtitle: "10 projects free — built for multi-service shops, not just photographers.",
   },
 
   "honeybook": {
@@ -150,6 +159,8 @@ export const VS_CONTENT: Record<string, VsEntry> = {
     ],
     verdict:
       "Honeybook is broader — designed for any creative service. Slate is narrower and deeper — designed specifically for production companies. If production is your industry, Slate fits your vocabulary (projects, shoots, crew, editors) and your numbers (per-project P&L, mileage, crew multipliers). If you're not in production, Honeybook probably fits better.",
+    ctaLabel: "Switch to Slate — built for production, not generic creatives.",
+    ctaSubtitle: "10 projects free — import your client list and go.",
   },
 
   "dubsado": {
@@ -183,5 +194,7 @@ export const VS_CONTENT: Record<string, VsEntry> = {
     ],
     verdict:
       "Dubsado is a powerful generalist CRM. Slate Freelance is a specialist tool for crew who work events and productions. If your life revolves around call times, per diems, and gear invoicing, Slate Freelance will feel purpose-built. If you run a service business with inquiry forms and client portals, Dubsado is the better fit.",
+    ctaLabel: "Try Slate Freelance — purpose-built for call-time life.",
+    ctaSubtitle: "10 gigs free — per diems, overtime, gear billing included.",
   },
 }

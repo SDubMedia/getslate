@@ -26,7 +26,10 @@ export default function VsPage() {
 
 function VsArticle({ entry }: { entry: VsEntry }) {
   const ctaHref = entry.slateProduct === "freelance" ? FREELANCE_URL : APP_URL
-  const ctaLabel = entry.slateProduct === "freelance" ? "Try Slate Freelance free" : "Try Slate free"
+  const defaultLabel = entry.slateProduct === "freelance" ? "Try Slate Freelance free" : "Try Slate free"
+  const ctaLabel = entry.ctaLabel || defaultLabel
+  const defaultSubtitle = `10 ${entry.slateProduct === "freelance" ? "gigs" : "projects"} free. No credit card.`
+  const ctaSubtitle = entry.ctaSubtitle || defaultSubtitle
 
   return (
     <div className="min-h-screen bg-[#0a0e17] text-white">
@@ -121,7 +124,7 @@ function VsArticle({ entry }: { entry: VsEntry }) {
           <a href={ctaHref} className="inline-block px-6 py-3 bg-[#0088ff] text-white font-semibold rounded-xl hover:bg-[#0066dd] transition-colors">
             {ctaLabel} →
           </a>
-          <p className="text-xs text-slate-500 mt-3">10 projects free. No credit card.</p>
+          <p className="text-xs text-slate-500 mt-3">{ctaSubtitle}</p>
         </div>
       </article>
     </div>

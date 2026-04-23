@@ -1,14 +1,41 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import IcpPicker, { type Icp } from "../components/IcpPicker"
+import { TOOLS } from "../toolRegistry"
+
+interface ApprovedTestimonial {
+  id: string
+  content: string
+  author_name: string
+  author_company: string
+}
+
+// Featured slugs per ICP — the 8 highest-volume tools a person in that
+// role reaches for most often. Keep this list tight — /tools shows all 31.
+const FEATURED_PRODUCTION = [
+  "invoice-generator", "calculator", "expenses", "contract",
+  "call-sheet", "crew-deal-memo", "model-release", "location-release",
+]
+const FEATURED_FREELANCE = [
+  "invoice-generator", "timesheet", "expenses", "crew-deal-memo",
+  "equipment-rental", "late-payment", "drone-log", "rate-card",
+]
 
 const APP_URL = "https://slate.sdubmedia.com"
 const FREELANCE_URL = "https://freelance.sdubmedia.com"
 
 export default function HomePage() {
   const [icp, setIcp] = useState<Icp | null>(null)
+  const [approved, setApproved] = useState<ApprovedTestimonial[]>([])
   const isFreelance = icp === "freelance"
   const primaryHref = isFreelance ? FREELANCE_URL : APP_URL
   const primaryLabel = isFreelance ? "Get Started with Freelance" : "Get Started Free"
+
+  useEffect(() => {
+    fetch("/api/testimonials")
+      .then(r => r.ok ? r.json() : { testimonials: [] })
+      .then(d => setApproved(d.testimonials || []))
+      .catch(() => { /* fall back to hardcoded */ })
+  }, [])
   return (
     <div className="min-h-screen bg-[#0a0e17]">
       {/* Nav */}
@@ -425,9 +452,27 @@ export default function HomePage() {
             <p className="text-slate-400">Real production crews. Real problems.</p>
           </div>
 
-          <div className={`grid grid-cols-1 ${icp ? "" : "md:grid-cols-2"} gap-6`}>
-            {/* Geoff — founder story (shown for production or no pick) */}
-            {!isFreelance && (
+          <div className={`grid grid-cols-1 ${icp && approved.length === 0 ? "" : "md:grid-cols-2"} gap-6`}>
+            {/* Approved testimonials from DB — replace hardcoded when available */}
+            {approved.length > 0 && approved.slice(0, icp ? 2 : 4).map(t => (
+              <div key={t.id} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+                <p className="text-slate-200 text-lg leading-relaxed mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+                  "{t.content}"
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0088ff] to-[#00d4ff] flex items-center justify-center text-white font-bold text-sm">
+                    {(t.author_name || "?").split(" ").map(s => s[0]).filter(Boolean).slice(0, 2).join("").toUpperCase()}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-white">{t.author_name}</p>
+                    {t.author_company && <p className="text-xs text-slate-500">{t.author_company}</p>}
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* Hardcoded fallback — only shown when no approved DB testimonials yet */}
+            {approved.length === 0 && !isFreelance && (
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
               <p className="text-slate-200 text-lg leading-relaxed mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
                 "I kept losing invoices. I had no idea which clients were actually profitable. My P&L lived in my head. I built Slate because nothing else was designed for how a production company actually runs."
@@ -444,8 +489,8 @@ export default function HomePage() {
             </div>
             )}
 
-            {/* Dave — shown for freelance or no pick */}
-            {(isFreelance || !icp) && (
+            {/* Dave — shown for freelance or no pick. Also falls back when no DB testimonials. */}
+            {approved.length === 0 && (isFreelance || !icp) && (
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
               <p className="text-slate-200 text-lg leading-relaxed mb-6" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
                 "Between clock-ins, per diem, gear rentals, and mileage, tracking a gig is a second job. Slate Freelance finally matches how live-event work actually bills."
@@ -470,28 +515,33 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 leading-tight" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
-              Free tools for production pros
+              {isFreelance ? "Free tools for freelance crew" : "Free tools for production pros"}
             </h2>
-            <p className="text-slate-400">Use them without signing up. They stand alone — and they'll make Slate feel obvious.</p>
+            <p className="text-slate-400">
+              {isFreelance
+                ? "Templates + calculators for solo crew. Use them without signing up — and they make Slate Freelance feel obvious."
+                : "Templates + calculators for running a production company. Use them without signing up — and they make Slate feel obvious."}
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <a href="/invoice-generator" className="group rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#0088ff]/40 transition-colors p-6">
-              <div className="text-3xl mb-3">🧾</div>
-              <h3 className="text-base font-semibold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Invoice Generator</h3>
-              <p className="text-sm text-slate-400 mb-3 leading-relaxed">Fill in a form, download a clean PDF invoice. No signup.</p>
-              <span className="text-xs font-semibold text-[#0088ff] group-hover:text-[#00d4ff]">Open →</span>
-            </a>
-            <a href="/calculator" className="group rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#0088ff]/40 transition-colors p-6">
-              <div className="text-3xl mb-3">📊</div>
-              <h3 className="text-base font-semibold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Profit Calculator</h3>
-              <p className="text-sm text-slate-400 mb-3 leading-relaxed">Answer 3 questions. See what you're actually making per month.</p>
-              <span className="text-xs font-semibold text-[#0088ff] group-hover:text-[#00d4ff]">Open →</span>
-            </a>
-            <a href="/expenses" className="group rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#0088ff]/40 transition-colors p-6">
-              <div className="text-3xl mb-3">💳</div>
-              <h3 className="text-base font-semibold text-white mb-1" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Expense Categorizer</h3>
-              <p className="text-sm text-slate-400 mb-3 leading-relaxed">Paste a bank CSV. We auto-sort it into Schedule C categories.</p>
-              <span className="text-xs font-semibold text-[#0088ff] group-hover:text-[#00d4ff]">Open →</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {(isFreelance ? FEATURED_FREELANCE : FEATURED_PRODUCTION).map(slug => {
+              const tool = TOOLS.find(t => t.slug === slug)
+              if (!tool) return null
+              const accent = isFreelance ? "hover:border-purple-500/40" : "hover:border-[#0088ff]/40"
+              const linkColor = isFreelance ? "text-purple-400 group-hover:text-purple-300" : "text-[#0088ff] group-hover:text-[#00d4ff]"
+              return (
+                <a key={tool.slug} href={tool.href} className={`group rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] ${accent} transition-colors p-5`}>
+                  <div className="text-2xl mb-2">{tool.emoji}</div>
+                  <h3 className="text-sm font-semibold text-white mb-1 leading-tight" style={{ fontFamily: "'Space Grotesk', system-ui" }}>{tool.title}</h3>
+                  <p className="text-xs text-slate-400 mb-3 leading-relaxed">{tool.short}</p>
+                  <span className={`text-xs font-semibold ${linkColor}`}>Open →</span>
+                </a>
+              )
+            })}
+          </div>
+          <div className="text-center mt-8">
+            <a href="/tools" className="inline-flex items-center gap-1 text-sm font-semibold text-slate-300 hover:text-white transition-colors">
+              See all {TOOLS.length} free tools →
             </a>
           </div>
         </div>
