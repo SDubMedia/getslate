@@ -9,7 +9,8 @@
     "build": "node scripts/build-sitemap.mjs && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "gen:types": "supabase gen types typescript --project-id fjnfmvzdnhgiapuawzpp > src/lib/database.types.ts"
   },
   "lint-staged": {
     "{src,api}/**/*.{ts,tsx}": [

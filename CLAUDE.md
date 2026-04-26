@@ -29,6 +29,10 @@ Marketing site for the Slate / Slate Freelance product line. The "free tools" fu
 - **UI:** shadcn/ui
 - **Package Manager:** pnpm. **Delete package-lock.json if it appears.**
 
+## Generated DB types
+
+`src/lib/database.types.ts` (Slate's Supabase project — same DB getslate writes leads to). Regenerate: `SUPABASE_ACCESS_TOKEN=sbp_... pnpm gen:types`.
+
 ## Tools Registry
 
 Single source of truth: `src/toolRegistry.ts`. Every free tool must be registered there. The registry powers:
