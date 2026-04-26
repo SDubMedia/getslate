@@ -10,6 +10,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node"
 import { createClient } from "@supabase/supabase-js"
 import { createHash } from "crypto"
+import "./_sentry.js";
 
 const clean = (v?: string) => (v || "").trim().replace(/^["']|["']$/g, "")
 

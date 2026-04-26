@@ -6,6 +6,7 @@
 
 import type { VercelRequest, VercelResponse } from "@vercel/node"
 import { createClient } from "@supabase/supabase-js"
+import "./_sentry.js";
 
 const clean = (v?: string) => (v || "").trim().replace(/^["']|["']$/g, "")
 const SUPABASE_URL = clean(process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL)
