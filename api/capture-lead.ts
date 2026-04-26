@@ -36,7 +36,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") return res.status(405).json({ error: "POST only" })
   if (!SUPABASE_URL || !SUPABASE_KEY) return res.status(500).json({ error: "Not configured" })
 
-  const { email: rawEmail, first_name, source, context, referrer, utm_source, utm_campaign } = (req.body || {}) as any
+  const { email: rawEmail, first_name, source, context, referrer, utm_source, utm_campaign } = (req.body || {}) as Record<string, string | undefined>;
   const email = clean(rawEmail).toLowerCase()
   const src = clean(source)
   const fn = clean(first_name).slice(0, 80) || null

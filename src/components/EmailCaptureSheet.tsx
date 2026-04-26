@@ -69,9 +69,9 @@ export default function EmailCaptureSheet({ slug, open, onClose }: Props) {
       markEmailSheetSeen()
       // Auto-close after a beat
       setTimeout(onClose, 2500)
-    } catch (err: any) {
+    } catch (err) {
       setStatus("error")
-      setError(err?.message || "Something went wrong.")
+      setError(err instanceof Error ? err.message : "Something went wrong.")
     }
   }
 

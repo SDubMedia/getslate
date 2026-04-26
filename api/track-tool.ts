@@ -27,7 +27,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") return res.status(405).json({ error: "POST only" })
   if (!SUPABASE_URL || !SUPABASE_KEY) return res.status(500).json({ error: "Not configured" })
 
-  const { slug, type, referrer, utm_source, utm_campaign } = (req.body || {}) as any
+  const { slug, type, referrer, utm_source, utm_campaign } = (req.body || {}) as Record<string, string | undefined>;
   const s = clean(slug).slice(0, MAX_SLUG)
   const t = clean(type)
   if (!s) return res.status(400).json({ error: "Missing slug" })
