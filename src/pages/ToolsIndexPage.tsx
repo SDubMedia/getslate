@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react"
 import { TOOLS, CATEGORIES, type ToolMeta, type Role, type Icp } from "../toolRegistry"
+import JsonLd from "../components/JsonLd"
+import { faqPageSchema, itemListSchema, SITE_URL, TOOLS_FAQS } from "../lib/seo"
 
 const APP_URL = "https://slate.sdubmedia.com"
 
@@ -43,8 +45,20 @@ export default function ToolsIndexPage() {
 
   const countByCat = (cat: string) => filtered.filter(t => t.category === cat).length
 
+  const schemas = useMemo(
+    () => [
+      itemListSchema({
+        name: "Free production tools and templates",
+        items: TOOLS.map(t => ({ url: `${SITE_URL}${t.href}`, name: t.title })),
+      }),
+      faqPageSchema(TOOLS_FAQS),
+    ],
+    []
+  )
+
   return (
     <div className="min-h-screen bg-[#0a0e17] text-white">
+      <JsonLd data={schemas} />
       <header className="border-b border-white/10 bg-[#0a0e17]/95 backdrop-blur-xl sticky top-0 z-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2.5">
@@ -157,6 +171,25 @@ export default function ToolsIndexPage() {
             )
           })
         )}
+
+        <div className="mt-14 mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold mb-5 text-center" style={{ fontFamily: "'Space Grotesk', system-ui" }}>
+            About these tools
+          </h2>
+          <div className="space-y-3 max-w-2xl mx-auto">
+            {TOOLS_FAQS.map((item, i) => (
+              <details key={i} className="group rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+                <summary className="cursor-pointer list-none p-5 flex items-center justify-between gap-4">
+                  <span className="text-sm font-semibold text-white">{item.q}</span>
+                  <svg className="w-4 h-4 text-slate-500 shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="px-5 pb-5 text-sm text-slate-400 leading-relaxed">{item.a}</div>
+              </details>
+            ))}
+          </div>
+        </div>
 
         <div className="mt-12 rounded-2xl border border-[#0088ff]/30 bg-[#0088ff]/5 p-8 text-center">
           <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "'Space Grotesk', system-ui" }}>

@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import IcpPicker, { type Icp } from "../components/IcpPicker"
 import { TOOLS } from "../toolRegistry"
+import JsonLd from "../components/JsonLd"
+import { HOME_FAQS, faqPageSchema, softwareApplicationSchema } from "../lib/seo"
 
 interface ApprovedTestimonial {
   id: string
@@ -13,11 +15,11 @@ interface ApprovedTestimonial {
 // role reaches for most often. Keep this list tight — /tools shows all 31.
 const FEATURED_PRODUCTION = [
   "invoice-generator", "calculator", "expenses", "contract",
-  "call-sheet", "crew-deal-memo", "model-release", "location-release",
+  "call-sheet", "ic-agreement", "model-release", "location-release",
 ]
 const FEATURED_FREELANCE = [
-  "invoice-generator", "timesheet", "expenses", "crew-deal-memo",
-  "equipment-rental", "late-payment", "drone-log", "rate-card",
+  "invoice-generator", "expenses", "rate-card", "equipment-rental",
+  "late-payment", "drone-log", "deposit-receipt", "change-order",
 ]
 
 const APP_URL = "https://slate.sdubmedia.com"
@@ -36,8 +38,14 @@ export default function HomePage() {
       .then(d => setApproved(d.testimonials || []))
       .catch(() => { /* fall back to hardcoded */ })
   }, [])
+
+  const schemas = useMemo(
+    () => [softwareApplicationSchema(), faqPageSchema(HOME_FAQS)],
+    []
+  )
   return (
     <div className="min-h-screen bg-[#0a0e17]">
+      <JsonLd data={schemas} />
       {/* Nav */}
       <nav className="fixed top-0 w-full z-50 bg-[#0a0e17]/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -810,41 +818,7 @@ export default function HomePage() {
           </div>
 
           <div className="space-y-3">
-            {([
-              {
-                q: "Do I have to quit QuickBooks?",
-                a: "No. Slate isn't accounting software — it's the operations layer that feeds your accounting. Keep QuickBooks for books and taxes; use Slate for scheduling, crew pay, invoicing, and profitability. Export CSVs any time."
-              },
-              {
-                q: "What's included in the free tier?",
-                a: "Both apps are free up to 10 projects (Slate) or 10 gigs (Freelance), with core features unlocked — calendar, clients, invoicing, reports, and more. When you hit the cap, upgrade to Basic ($9.99/mo) for unlimited work or Pro ($19.99/mo) to add AI scanning, P&L, and advanced tools."
-              },
-              {
-                q: "Can I invite my crew? What can they see?",
-                a: "Yes. Four roles: Owner (you), Partner (co-owner access), Staff (their schedule + their pay), Client (their projects only). Per-user feature overrides if the defaults don't fit."
-              },
-              {
-                q: "Is my data safe? Where does it live?",
-                a: "Postgres on Supabase, encrypted in transit and at rest. Row-level security scopes every query to your org — nobody else can see your data, not even other Slate customers. We never sell your data and never train AI models on it."
-              },
-              {
-                q: "Can I export my data?",
-                a: "Yes. CSV export on reports, invoices, billing summaries, and mileage. On account deletion, we remove your data within 30 days. Your data is yours."
-              },
-              {
-                q: "What happens if I cancel?",
-                a: "You keep access through the end of your current billing period. Your data stays — nothing is deleted. If you come back, everything's right where you left it. Pro-only features hide on free/Basic, but the underlying records are preserved."
-              },
-              {
-                q: "Can I switch between Basic and Pro?",
-                a: "Any time, from the Subscription link in the sidebar. Stripe handles proration automatically — no double-charging."
-              },
-              {
-                q: "I'm a freelancer, not a company. Is Slate for me?",
-                a: "Not Slate — but Slate Freelance is. It's a separate app tuned for live-event freelancers (clock in/out, overtime, gear billing, mileage, per diem). Same team. freelance.sdubmedia.com.",
-                hideWhen: "production" as const,
-              },
-            ] as const).filter(item => !("hideWhen" in item) || item.hideWhen !== icp).map((item, i) => (
+            {HOME_FAQS.filter(item => item.hideWhen !== icp).map((item, i) => (
               <details key={i} className="group rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
                 <summary className="cursor-pointer list-none p-5 flex items-center justify-between gap-4">
                   <span className="text-sm font-semibold text-white">{item.q}</span>

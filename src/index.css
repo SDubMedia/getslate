@@ -11,3 +11,25 @@ body {
   font-family: system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
+/* Print rules — applied to every tool's PDF output.
+   Without these, browsers add ~1in of default margin AND each tool's
+   own padding stacks on top, so simple 1-line documents spill to 2 pages.
+   This sets a tight standard margin and resets the dark page background
+   so it doesn't bleed through if a tool forgets to reset it locally. */
+@media print {
+  @page {
+    size: letter;
+    margin: 0.4in;
+  }
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  /* Outer page wrappers commonly have min-h-screen + dark bg — neutralize
+     them on print so the white print card isn't sitting on top of black. */
+  body > #root > div {
+    min-height: 0 !important;
+    background: #ffffff !important;
+  }
+}

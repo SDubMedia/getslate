@@ -23,6 +23,26 @@
 
     <link rel="canonical" href="https://getslate.net" />
 
+    <!-- Baseline JSON-LD — present in initial HTML for AI/SEO crawlers
+         that don't execute JS. Per-page schema is injected by JsonLd.tsx. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Slate",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS",
+      "description": "Production management for creative teams. Track projects, pay crew, send invoices, and see your real profit per project.",
+      "url": "https://getslate.net",
+      "offers": [
+        { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "description": "Up to 10 projects, full Basic features." },
+        { "@type": "Offer", "name": "Basic", "price": "9.99", "priceCurrency": "USD", "description": "Unlimited projects, calendar, invoicing, reports." },
+        { "@type": "Offer", "name": "Pro", "price": "19.99", "priceCurrency": "USD", "description": "Everything in Basic + AI receipt scanning, P&L, advanced reports." }
+      ],
+      "publisher": { "@type": "Organization", "name": "SDub Media LLC", "url": "https://getslate.net" }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />

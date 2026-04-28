@@ -44,16 +44,13 @@ export const TOOLS: ToolMeta[] = [
   { slug: "payment-plan", href: "/templates/payment-plan", title: "Payment Plan Agreement", short: "Installment schedule when client can't pay up front.", emoji: "📅", category: "Billing", clusters: ["getting-paid"], icps: ["both"], roles: ["producer"] },
   { slug: "deposit-receipt", href: "/templates/deposit-receipt", title: "Deposit Receipt", short: "Formal acknowledgment when a deposit arrives.", emoji: "🧾", category: "Billing", clusters: ["booking-new-client", "getting-paid"], icps: ["both"], roles: ["producer", "solo"] },
   { slug: "change-order", href: "/templates/change-order", title: "Change Order", short: "Document scope creep, get it signed, protect margin.", emoji: "📝", category: "Billing", clusters: ["booking-new-client"], icps: ["both"], roles: ["producer"] },
-  { slug: "timesheet", href: "/templates/timesheet", title: "Timesheet", short: "Hourly crew logs hours, supervisor signs.", emoji: "⏱", category: "Billing", clusters: ["getting-paid"], icps: ["freelance"], roles: ["freelance-crew", "editor", "camera-op"] },
   { slug: "w9-request", href: "/templates/w9-request", title: "W-9 Request Letter", short: "Professional ask for a contractor's W-9.", emoji: "📋", category: "Billing", clusters: ["getting-paid"], icps: ["production"], roles: ["producer"] },
 
   // ---- Agreements ----
   { slug: "contract", href: "/templates/contract", title: "Video Production Contract", short: "Fillable starting point for commercial video work.", emoji: "📜", category: "Agreements", clusters: ["booking-new-client", "legal-stack"], icps: ["production"], roles: ["producer", "solo"] },
   { slug: "proposal", href: "/templates/proposal", title: "Proposal / Statement of Work", short: "Pre-contract pitch with scope + line items.", emoji: "📄", category: "Agreements", clusters: ["booking-new-client"], icps: ["production"], roles: ["producer", "solo"] },
   { slug: "ic-agreement", href: "/templates/ic-agreement", title: "Independent Contractor Agreement", short: "Hiring a 1099 editor or crew. IP assignment included.", emoji: "✍️", category: "Agreements", clusters: ["shoot-day", "legal-stack"], icps: ["production"], roles: ["producer"] },
-  { slug: "crew-deal-memo", href: "/templates/crew-deal-memo", title: "Crew Deal Memo", short: "One-page day-rate booking. Send, sign, show up.", emoji: "🤝", category: "Agreements", clusters: ["shoot-day"], icps: ["both"], roles: ["producer", "freelance-crew", "editor", "dp", "camera-op"] },
   { slug: "equipment-rental", href: "/templates/equipment-rental", title: "Equipment Rental Agreement", short: "Rent gear to (or from) another crew.", emoji: "📦", category: "Agreements", clusters: ["shoot-day", "legal-stack"], icps: ["both"], roles: ["producer", "dp", "camera-op"] },
-  { slug: "nda", href: "/templates/nda", title: "Mutual NDA", short: "Short-form mutual non-disclosure.", emoji: "🔒", category: "Agreements", clusters: ["booking-new-client", "legal-stack"], icps: ["both"], roles: ["producer", "solo"] },
 
   // ---- Releases & Licensing ----
   { slug: "model-release", href: "/templates/model-release", title: "Model Release", short: "Standard adult model release form.", emoji: "🪪", category: "Releases & Licensing", clusters: ["shoot-day", "legal-stack"], icps: ["both"], roles: ["producer", "director", "dp", "solo"] },
@@ -71,8 +68,6 @@ export const TOOLS: ToolMeta[] = [
   { slug: "drone-log", href: "/drone-log", title: "Drone Flight Log (Part 107)", short: "Track every flight for FAA compliance + tax records.", emoji: "🚁", category: "Production", clusters: ["shoot-day"], icps: ["both"], roles: ["drone-pilot", "dp"] },
 
   // ---- Marketing ----
-  { slug: "case-study", href: "/templates/case-study", title: "Case Study Template", short: "Structure for telling a project story.", emoji: "🏆", category: "Marketing", clusters: ["closing-out"], icps: ["production"], roles: ["producer", "solo"] },
-  { slug: "press-release", href: "/templates/press-release", title: "Press Release", short: "AP-style announcement for project launches.", emoji: "📰", category: "Marketing", clusters: ["closing-out"], icps: ["production"], roles: ["producer"] },
   { slug: "testimonial-request", href: "/templates/testimonial-request", title: "Testimonial Request Letter", short: "Short, human ask after a successful project.", emoji: "💬", category: "Marketing", clusters: ["closing-out"], icps: ["both"], roles: ["producer", "solo"] },
 ]
 

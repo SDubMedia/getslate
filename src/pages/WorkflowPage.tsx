@@ -1,7 +1,9 @@
-import { useEffect } from "react"
+import { useEffect, useMemo } from "react"
 import { useRoute } from "wouter"
 import { getWorkflow, WORKFLOWS } from "./workflowContent"
 import { getTool } from "../toolRegistry"
+import JsonLd from "../components/JsonLd"
+import { faqPageSchema, howToSchema, SITE_URL, type Faq } from "../lib/seo"
 
 const APP_URL = "https://slate.sdubmedia.com"
 const FREELANCE_URL = "https://freelance.sdubmedia.com"
@@ -15,6 +17,48 @@ export default function WorkflowPage() {
     if (wf) document.title = wf.pageTitle
     return () => { document.title = "Slate — Production Management for Creative Teams" }
   }, [wf])
+
+  const faqs: Faq[] = useMemo(() => {
+    if (!wf) return []
+    const audience =
+      wf.icp === "freelance"
+        ? "freelance video crew (camera ops, editors, DPs, drone pilots)"
+        : wf.icp === "production"
+        ? "independent video production companies and producer-owners"
+        : "video production companies and freelance video crew"
+    const cost =
+      wf.icp === "freelance"
+        ? "Every template and tool linked from this workflow is free. Slate Freelance (the paid app) is free up to 10 gigs, then $9.99/mo Basic or $19.99/mo Pro."
+        : "Every template and tool linked from this workflow is free. Slate (the paid app) is free up to 10 projects, then $9.99/mo Basic or $19.99/mo Pro."
+    const howSteps = wf.steps.map((s) => s.heading.replace(/^\d+\.\s*/, "")).join(" → ")
+    return [
+      { q: `What is the ${wf.title.replace(/^How to /i, "").replace(/\?$/, "")} workflow?`, a: wf.intro },
+      { q: "Who is this workflow for?", a: `This workflow is built for ${audience}.` },
+      { q: "What does this cost?", a: cost },
+      { q: "How does this workflow work?", a: `${wf.steps.length} steps, in this order: ${howSteps}. Each step links to a free fillable template you can complete and download as a PDF.` },
+    ]
+  }, [wf])
+
+  const schemas = useMemo(() => {
+    if (!wf) return []
+    const url = `${SITE_URL}/workflow/${wf.slug}`
+    return [
+      howToSchema({
+        name: wf.title,
+        description: wf.metaDescription,
+        url,
+        steps: wf.steps.map((s) => {
+          const tool = getTool(s.tool)
+          return {
+            name: s.heading,
+            text: s.body,
+            ...(tool ? { url: `${SITE_URL}${tool.href}` } : {}),
+          }
+        }),
+      }),
+      faqPageSchema(faqs),
+    ]
+  }, [wf, faqs])
 
   if (!wf) {
     return (
@@ -37,6 +81,7 @@ export default function WorkflowPage() {
 
   return (
     <div className="min-h-screen bg-[#0a0e17] text-white">
+      <JsonLd data={schemas} />
       <header className="border-b border-white/10 bg-[#0a0e17]/95 backdrop-blur-xl sticky top-0 z-10">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2.5">
@@ -92,6 +137,24 @@ export default function WorkflowPage() {
               {ctaLabel} →
             </a>
             <p className="text-xs text-slate-500 mt-3">10 {wf.icp === "freelance" ? "gigs" : "projects"} free. No credit card.</p>
+          </div>
+        </div>
+
+        {/* FAQ */}
+        <div className="mb-12">
+          <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">FAQ</h3>
+          <div className="space-y-3">
+            {faqs.map((item, i) => (
+              <details key={i} className="group rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+                <summary className="cursor-pointer list-none p-5 flex items-center justify-between gap-4">
+                  <span className="text-sm font-semibold text-white">{item.q}</span>
+                  <svg className="w-4 h-4 text-slate-500 shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="px-5 pb-5 text-sm text-slate-400 leading-relaxed">{item.a}</div>
+              </details>
+            ))}
           </div>
         </div>
 

@@ -1,7 +1,10 @@
-import { useEffect, useState, type ReactNode } from "react"
+import { useEffect, useMemo, useState, type ReactNode } from "react"
 import RelatedTools from "../../components/RelatedTools"
 import EmailCaptureSheet, { hasDismissedEmailSheet } from "../../components/EmailCaptureSheet"
 import { trackTool } from "../../lib/trackTool"
+import JsonLd from "../../components/JsonLd"
+import { SITE_URL, templateSchema } from "../../lib/seo"
+import { getTool } from "../../toolRegistry"
 
 export const APP_URL = "https://slate.sdubmedia.com"
 
@@ -29,6 +32,16 @@ export function TemplateShell({ title, subtitle, slug, children }: ShellProps) {
     if (slug) trackTool(slug, "view")
   }, [slug])
 
+  const schema = useMemo(() => {
+    const tool = slug ? getTool(slug) : undefined
+    if (!tool) return null
+    return templateSchema({
+      name: tool.title,
+      description: tool.short,
+      url: `${SITE_URL}${tool.href}`,
+    })
+  }, [slug])
+
   function handleDownload() {
     if (slug) trackTool(slug, "download")
     window.print()
@@ -41,6 +54,7 @@ export function TemplateShell({ title, subtitle, slug, children }: ShellProps) {
 
   return (
     <div className="min-h-screen bg-[#0a0e17] text-white">
+      {schema && <JsonLd data={schema} />}
       <header className="print:hidden border-b border-white/10 bg-[#0a0e17]/95 backdrop-blur-xl sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2.5">
@@ -140,7 +154,8 @@ export function TextArea({ label, value, onChange, placeholder, rows = 3 }: {
 
 export function PrintPaper({ children }: { children: ReactNode }) {
   return (
-    <div className="hidden print:block bg-white text-black p-12" style={{ colorScheme: "light" }}>
+    // @page rule in index.css controls outer margins; no extra padding here.
+    <div className="hidden print:block bg-white text-black" style={{ colorScheme: "light" }}>
       <div className="max-w-[800px] mx-auto text-sm leading-relaxed" style={{ fontFamily: "'Times New Roman', Times, serif" }}>
         {children}
       </div>

@@ -163,6 +163,48 @@ export const VS_CONTENT: Record<string, VsEntry> = {
     ctaSubtitle: "10 projects free — import your client list and go.",
   },
 
+  "vidlead": {
+    name: "Vidlead Studio",
+    slateProduct: "slate",
+    intro:
+      "Vidlead Studio is an all-in-one bundle — website builder, CRM, invoicing, calendar, video hosting, marketing automation — at $97/mo. Slate is narrower and cheaper: ops + financials for production companies, with a real free tier. Different gravity centers, real overlap on the middle.",
+    slateFor: "Production companies who care about per-project profitability, crew tracking, and ops — and already host their site, deliver video, and run marketing elsewhere.",
+    competitorFor: "Solo videographers and wedding filmmakers who want one bill that replaces a website builder, CRM, video hosting, and marketing automation.",
+    compareTable: [
+      { feature: "Primary use", slate: "Production ops + per-project P&L", competitor: "All-in-one CRM + website + delivery" },
+      { feature: "Starting price", slate: "Free (10 projects)", competitor: "$97/mo (no free tier, 14-day trial)" },
+      { feature: "Paid tiers", slate: "$9.99/mo Basic, $19.99/mo Pro", competitor: "$97/mo or $970/yr only" },
+      { feature: "Website / funnel builder", slate: "No", competitor: "Yes" },
+      { feature: "Video hosting + client review", slate: "No (Frame.io, Vimeo, etc.)", competitor: "Yes (built-in)" },
+      { feature: "Email + SMS marketing automations", slate: "No", competitor: "Yes" },
+      { feature: "CRM / lead pipeline", slate: "Yes", competitor: "Yes (core feature)" },
+      { feature: "Invoices + contracts", slate: "Yes (Stripe Connect)", competitor: "Yes" },
+      { feature: "Calendar + booking", slate: "Yes", competitor: "Yes" },
+      { feature: "Crew management (roles, rates, hours)", slate: "Yes", competitor: "Limited" },
+      { feature: "Per-project profit / P&L", slate: "Yes (the headline)", competitor: "No" },
+      { feature: "Mileage tracking", slate: "Yes (Google Maps)", competitor: "No" },
+      { feature: "AI receipt scanning", slate: "Yes (Pro)", competitor: "No" },
+      { feature: "iOS app", slate: "Yes (native)", competitor: "Web only" },
+      { feature: "Mentorship / bootcamp included", slate: "No", competitor: "Yes" },
+    ],
+    pickSlate: [
+      "You want to know what each project actually made — not just what you invoiced.",
+      "You hire crew (1099 or freelance) and need their hours, rates, and pay tied to the shoot.",
+      "$97/mo is a stretch and a real free tier matters while you're ramping.",
+      "You already have a website, video delivery (Frame.io / Vimeo / Dropbox), and don't need them rebundled.",
+    ],
+    pickCompetitor: [
+      "You're a solo wedding filmmaker or videographer with no website yet.",
+      "You want client video review and delivery built into the same tool you invoice from.",
+      "Email/SMS drip campaigns to your inquiry list are a real part of how you book.",
+      "Mentorship and onboarding handholding are worth the price premium for you.",
+    ],
+    verdict:
+      "Vidlead is a bundle play — replace 8 SaaS tools, pay one bill, get mentorship. Great for solo creator-businesses that need a website, CRM, and delivery in one place. Slate is a focus play — production ops and real profitability for companies hiring crew, at one-tenth the price. If you're a wedding filmmaker without a site, Vidlead can be the easier on-ramp. If you're a production company that already has a site and wants to know your real margin per shoot, Slate is the tighter fit.",
+    ctaLabel: "Try Slate free — keep your site, get the ops + numbers.",
+    ctaSubtitle: "10 projects free, $9.99/mo when you outgrow it. ~10x cheaper than Vidlead.",
+  },
+
   "dubsado": {
     name: "Dubsado",
     slateProduct: "freelance",

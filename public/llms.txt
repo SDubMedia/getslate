@@ -1,0 +1,70 @@
+# Slate
+
+> Production management for creative teams. Track projects, pay crew, send invoices, and see your real profit per project. Free tools and templates for video production companies and freelance crew.
+
+Slate (slate.sdubmedia.com) is the paid product. Slate Freelance (freelance.sdubmedia.com) is a separate app for live-event freelance crew. getslate.net is the marketing site that hosts free production-industry tools and templates.
+
+## Apps
+
+- [Slate](https://getslate.net): Production management for video production companies. Free up to 10 projects, $9.99/mo Basic, $19.99/mo Pro.
+- [Slate Freelance](https://freelance.sdubmedia.com): Gig tracking for live-event freelance crew. Same pricing, different app.
+
+## Free tools
+
+### Billing
+
+- [Invoice Generator](https://getslate.net/invoice-generator): Fill a form, download a clean PDF invoice.
+- [Profit Calculator](https://getslate.net/calculator): 3 questions — what you're actually making per month.
+- [Expense Categorizer](https://getslate.net/expenses): Upload a bank CSV, auto-sorted into Schedule C.
+- [Rate Card](https://getslate.net/templates/rate-card): Clean downloadable rate sheet for client inquiries.
+- [Late Payment Letter](https://getslate.net/templates/late-payment): Friendly / firm / final — pick a tone.
+- [Late Fee Addendum](https://getslate.net/templates/late-fee-addendum): Amend a contract to add late-payment penalties.
+- [Payment Plan Agreement](https://getslate.net/templates/payment-plan): Installment schedule when client can't pay up front.
+- [Deposit Receipt](https://getslate.net/templates/deposit-receipt): Formal acknowledgment when a deposit arrives.
+- [Change Order](https://getslate.net/templates/change-order): Document scope creep, get it signed, protect margin.
+- [W-9 Request Letter](https://getslate.net/templates/w9-request): Professional ask for a contractor's W-9.
+
+### Agreements
+
+- [Video Production Contract](https://getslate.net/templates/contract): Fillable starting point for commercial video work.
+- [Proposal / Statement of Work](https://getslate.net/templates/proposal): Pre-contract pitch with scope + line items.
+- [Independent Contractor Agreement](https://getslate.net/templates/ic-agreement): Hiring a 1099 editor or crew. IP assignment included.
+- [Equipment Rental Agreement](https://getslate.net/templates/equipment-rental): Rent gear to (or from) another crew.
+
+### Releases & Licensing
+
+- [Model Release](https://getslate.net/templates/model-release): Standard adult model release form.
+- [Minor Model Release](https://getslate.net/templates/minor-release): Parental consent for subjects under 18.
+- [Location Release](https://getslate.net/templates/location-release): Permission to shoot on private property.
+- [Usage License](https://getslate.net/templates/usage-license): Granular rights grant for specific deliverables.
+- [Music License Request](https://getslate.net/templates/music-license): Ask for sync / background music rights.
+
+### Production
+
+- [Call Sheet](https://getslate.net/templates/call-sheet): Shoot-day bible: crew, call times, weather, hospital.
+- [Shot List](https://getslate.net/templates/shot-list): Scene-by-scene breakdown with lens notes.
+- [Creative Brief](https://getslate.net/templates/creative-brief): Kickoff document filled out WITH the client.
+- [Client Intake Questionnaire](https://getslate.net/templates/client-intake): Pre-kickoff form that becomes your brief.
+- [Project Wrap Report](https://getslate.net/templates/wrap-report): End-of-project recap with final invoice.
+- [Drone Flight Log (Part 107)](https://getslate.net/drone-log): Track every flight for FAA compliance + tax records.
+
+### Marketing
+
+- [Testimonial Request Letter](https://getslate.net/templates/testimonial-request): Short, human ask after a successful project.
+
+## Workflows
+
+- [How to book a new video production client (start to signed)](https://getslate.net/workflow/booking-a-new-client)
+- [Shoot day: every document your crew needs before the call](https://getslate.net/workflow/shoot-day)
+- [Getting paid: invoicing, chasing, and not losing money](https://getslate.net/workflow/getting-paid)
+- [Closing out a project: wrap, testimonial, usage rights](https://getslate.net/workflow/closing-out)
+- [Legal stack: every contract + release a production company needs](https://getslate.net/workflow/legal-stack)
+
+## Comparisons
+
+- [Slate vs Wrapbook](https://getslate.net/vs/wrapbook)
+- [Slate vs StudioBinder](https://getslate.net/vs/studio-binder)
+- [Slate vs Sprout Studio](https://getslate.net/vs/sprout-studio)
+- [Slate vs Honeybook](https://getslate.net/vs/honeybook)
+- [Slate vs Vidlead Studio](https://getslate.net/vs/vidlead)
+- [Slate vs Dubsado](https://getslate.net/vs/dubsado)

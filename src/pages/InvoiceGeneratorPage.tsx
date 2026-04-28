@@ -260,10 +260,11 @@ export default function InvoiceGeneratorPage() {
         </div>
       </div>
 
-      {/* Print-only invoice — clean white paper */}
-      <div className="hidden print:block bg-white text-black p-12" style={{ colorScheme: "light" }}>
+      {/* Print-only invoice — clean white paper.
+          @page rule in index.css handles outer margins; no extra padding here. */}
+      <div className="hidden print:block bg-white text-black" style={{ colorScheme: "light" }}>
         <div className="max-w-[800px] mx-auto">
-          <div className="flex items-start justify-between mb-10">
+          <div className="flex items-start justify-between mb-8">
             <div>
               <h1 className="text-3xl font-bold mb-1">{fromName || "Your Business"}</h1>
               <div className="text-sm text-gray-600 whitespace-pre-line">{fromAddress}</div>
@@ -278,14 +279,14 @@ export default function InvoiceGeneratorPage() {
             </div>
           </div>
 
-          <div className="mb-10">
+          <div className="mb-8">
             <div className="text-xs uppercase tracking-wider text-gray-500 mb-1">Bill to</div>
             <div className="text-base font-semibold">{toName || "Client Name"}</div>
             <div className="text-sm text-gray-600 whitespace-pre-line">{toAddress}</div>
             <div className="text-sm text-gray-600">{toEmail}</div>
           </div>
 
-          <table className="w-full mb-10">
+          <table className="w-full mb-8">
             <thead>
               <tr className="border-b-2 border-black">
                 <th className="text-left py-2 text-xs uppercase tracking-wider text-gray-700">Description</th>
@@ -306,7 +307,7 @@ export default function InvoiceGeneratorPage() {
             </tbody>
           </table>
 
-          <div className="flex justify-end mb-10">
+          <div className="flex justify-end mb-8">
             <div className="w-72 space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-gray-600">Subtotal</span>
@@ -326,7 +327,7 @@ export default function InvoiceGeneratorPage() {
           </div>
 
           {notes && (
-            <div className="border-t border-gray-200 pt-4 mb-10">
+            <div className="border-t border-gray-200 pt-4 mb-8">
               <div className="text-xs uppercase tracking-wider text-gray-500 mb-2">Notes</div>
               <div className="text-sm text-gray-700 whitespace-pre-line">{notes}</div>
             </div>
