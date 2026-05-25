@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react"
 import IcpPicker, { type Icp } from "../components/IcpPicker"
 import { TOOLS } from "../toolRegistry"
 import JsonLd from "../components/JsonLd"
+import AppStoreBadge from "../components/AppStoreBadge"
 import { HOME_FAQS, faqPageSchema, softwareApplicationSchema } from "../lib/seo"
 
 interface ApprovedTestimonial {
@@ -61,6 +62,7 @@ export default function HomePage() {
             <a href={primaryHref} className={`px-4 py-2 text-white text-sm font-medium rounded-lg transition-colors ${isFreelance ? "bg-purple-500 hover:bg-purple-600" : "bg-[#0088ff] hover:bg-[#0066dd]"}`}>
               Start Free Trial
             </a>
+            <AppStoreBadge height={32} className="hidden lg:inline-flex" />
           </div>
         </div>
       </nav>
@@ -170,8 +172,9 @@ export default function HomePage() {
               >
                 {primaryLabel}
               </a>
-              <span className="text-sm text-slate-500">10 {isFreelance ? "gigs" : "projects"} free, forever. No credit card.</span>
+              {!isFreelance && <AppStoreBadge height={52} />}
             </div>
+            <p className="text-sm text-slate-500 mt-4 text-center">10 {isFreelance ? "gigs" : "projects"} free, forever. No credit card.</p>
           </div>
         )}
       </section>
@@ -855,9 +858,12 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="border-t border-white/5 py-12 px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div className="flex items-center gap-2.5">
-            <img src="/logo.png" alt="Slate" className="w-6 h-6 rounded-md" />
-            <span className="text-sm font-semibold text-white" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Slate</span>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2.5">
+              <img src="/logo.png" alt="Slate" className="w-6 h-6 rounded-md" />
+              <span className="text-sm font-semibold text-white" style={{ fontFamily: "'Space Grotesk', system-ui" }}>Slate</span>
+            </div>
+            <AppStoreBadge height={36} />
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
